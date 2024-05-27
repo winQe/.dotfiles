@@ -101,8 +101,6 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-export APOLLO_ROOT_DIR=/home/adin/apollo
-
 #sudo bash ~/apollo/docker/scripts/dev_into.sh
 #source ~/apollo/cyber/setup.bash
 
@@ -168,3 +166,6 @@ alias gedit='nvim'
 export PATH="$PATH:/home/avt/.local/bin"
 
 alias wezterm='flatpak run org.wezfurlong.wezterm'
+source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+eval "$(zoxide init --cmd cd zsh)"
