@@ -160,7 +160,10 @@ eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 # Temporary to force me to learn nvim
 alias nano='nvim'
 alias vim='nvim' 
-alias gedit='nvim'
+
+# VI Mode!!!
+set -o vi
+bindkey jk vi-cmd-mode
 
 # Created by `pipx` on 2024-05-17 08:45:12
 export PATH="$PATH:/home/avt/.local/bin"
@@ -179,3 +182,4 @@ function yy() {
 	rm -f -- "$tmp"
 }
 
+source <(fzf --zsh)
