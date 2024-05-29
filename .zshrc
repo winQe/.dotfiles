@@ -183,3 +183,11 @@ function yy() {
 }
 
 source <(fzf --zsh)
+
+# Eza
+export LS_COLORS="$(vivid generate catppuccin-mocha)"
+alias l="eza -l --icons --git -a --header"
+alias lt="eza --tree --level=2 --long --icons --git --header"
+alias ls="eza --icons --git"
+#
+# eval "$(starship init zsh)"
