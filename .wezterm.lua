@@ -1,6 +1,12 @@
 -- Pull in the wezterm API
 local wezterm = require("wezterm")
 
+wezterm.on("format-window-title", function()
+	local title = "WezTerm"
+	-- some logic here
+	return title
+end)
+
 -- This will hold the configuration.
 local config = wezterm.config_builder()
 
@@ -35,7 +41,7 @@ config.colors = {
 		"#40a02b", -- bright green
 		"#df8e1d", -- bright yellow
 		"#1e66f5", -- bright blue
-		"#df8e1d", -- bright magenta
+		"#f5c2e7", -- bright magenta
 		"#04a5e5", -- bright cyan
 		"#eff1f5", -- bright white
 	},
