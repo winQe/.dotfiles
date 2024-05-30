@@ -32,14 +32,6 @@ return {
       },
     },
   },
-
-  {
-    "jamestthompson3/nvim-remote-containers",
-    cmd = { "AttachToContainer", "ComposeUp", "BuildImage", "StartImage" },
-  },
-  {
-    "lspcontainers/lspcontainers.nvim",
-  },
   {
     "ThePrimeagen/vim-be-good",
     cmd = { "VimBeGood" },
@@ -50,6 +42,24 @@ return {
     config = function()
       require("nvim-ts-autotag").setup()
     end,
+  },
+  {
+    "kawre/leetcode.nvim",
+    build = ":TSUpdate html",
+    dependencies = {
+      "nvim-telescope/telescope.nvim",
+      "nvim-lua/plenary.nvim", -- required by telescope
+      "MunifTanjim/nui.nvim",
+
+      -- optional
+      "nvim-treesitter/nvim-treesitter",
+      "rcarriga/nvim-notify",
+      "nvim-tree/nvim-web-devicons",
+    },
+    opts = {
+      -- configuration goes here
+    },
+    lazy = false,
   },
   -- {
   --   "nvim-treesitter/nvim-treesitter",
