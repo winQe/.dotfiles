@@ -58,6 +58,17 @@ return {
     },
     opts = {
       -- configuration goes here
+      ---@type lc.storage
+      storage = {
+        home = "/home/avt/random_projects/lc/",
+        cache = vim.fn.stdpath "cache" .. "/leetcode",
+      },
+      injector = { ---@type table<lc.lang, lc.inject>
+        ["cpp"] = {
+          before = { "#include <bits/stdc++.h>", "#include <vector>", "#include <string>", "using namespace std;" },
+          after = "int main() {}",
+        },
+      },
     },
     lazy = false,
   },
