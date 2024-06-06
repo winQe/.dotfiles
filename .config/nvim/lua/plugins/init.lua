@@ -33,6 +33,11 @@ return {
     },
   },
   {
+    "lewis6991/gitsigns.nvim",
+    config = function()
+      require "lua.configs.gitsigns"
+    end,
+  },
     "ThePrimeagen/vim-be-good",
     cmd = { "VimBeGood" },
   },
