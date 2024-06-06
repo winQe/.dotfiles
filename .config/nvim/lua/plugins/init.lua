@@ -38,6 +38,7 @@ return {
       require "lua.configs.gitsigns"
     end,
   },
+  {
     "ThePrimeagen/vim-be-good",
     cmd = { "VimBeGood" },
   },
@@ -71,7 +72,6 @@ return {
       injector = { ---@type table<lc.lang, lc.inject>
         ["cpp"] = {
           before = { "#include <bits/stdc++.h>", "#include <vector>", "#include <string>", "using namespace std;" },
-          after = "int main() {}",
         },
       },
     },
