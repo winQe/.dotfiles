@@ -29,6 +29,7 @@ return {
         "typescript-language-server",
         "tailwindcss-language-server",
         "eslint-lsp",
+        "pyright",
       },
     },
   },
