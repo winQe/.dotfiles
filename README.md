@@ -17,8 +17,8 @@ First, install [Homebrew](https://www.digitalocean.com/community/tutorials/how-t
 Use Homebrew to install the necessary packages:
 
 ```sh
-brew install zsh ripgrep fzf eza zoxide tmux vivid nvim stow
-```
+brew install zsh ripgrep fzf eza zoxide tmux vivid nvim stow lazygit starship 
+``` 
 
 ### Install Oh My Zsh
 
