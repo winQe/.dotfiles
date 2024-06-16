@@ -150,11 +150,6 @@ return {
     },
     opts = {
       -- configuration goes here
-      ---@type lc.storage
-      storage = {
-        home = "/home/avt/random_projects/lc/",
-        cache = vim.fn.stdpath "cache" .. "/leetcode",
-      },
       injector = { ---@type table<lc.lang, lc.inject>
         ["cpp"] = {
           before = { "#include <bits/stdc++.h>", "#include <vector>", "#include <string>", "using namespace std;" },
@@ -163,17 +158,4 @@ return {
     },
     lazy = false,
   },
-  -- {
-  --   "nvim-treesitter/nvim-treesitter",
-  --   opts = function()
-  --     local opts = require "plugins.configs.treesitter"
-  --     opts.ensure_installed = {
-  --       "lua",
-  --       "javascript",
-  --       "typescript",
-  --       "tsx",
-  --     }
-  --     return opts
-  --   end,
-  -- },
 }

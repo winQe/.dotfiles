@@ -48,12 +48,12 @@ export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/lib/nvidia
 #source /opt/ros/noetic/setup.zsh
 export PATH=/usr/lib/qt5/bin/:$PATH
 
-# FastDDS
-export PATH=$PATH:/home/avt/fastdds_v2.12.0/bin/
-export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/avt/fastdds_v2.12.0/lib/
-export FASTDDSHOME=/home/avt/fastdds_v2.12.0/
-
-source  /home/avt/fastdds_python/install/setup.bash
+# # FastDDS
+# export PATH=$PATH:/home/avt/fastdds_v2.12.0/bin/
+# export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/avt/fastdds_v2.12.0/lib/
+# export FASTDDSHOME=/home/avt/fastdds_v2.12.0/
+#
+# source  /home/avt/fastdds_python/install/setup.bash
 
 # gRPC
 export PATH=$PATH:/home/avt/grpc/install/bin/
@@ -76,7 +76,6 @@ bindkey jk vi-cmd-mode
 export PATH="$PATH:/home/avt/.local/bin"
 
 alias wezterm='flatpak run org.wezfurlong.wezterm'
-source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 eval "$(zoxide init --cmd cd zsh)"
 
@@ -98,3 +97,5 @@ alias lt="eza --tree --level=2 --long --icons --git -h"
 alias ls="eza --icons --git"
 #
 eval "$(starship init zsh)"
+alias cat='bat'
+source "$HOME/.cargo/env"
