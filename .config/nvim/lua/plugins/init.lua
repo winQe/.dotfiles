@@ -30,8 +30,17 @@ return {
         "tailwindcss-language-server",
         "eslint-lsp",
         "pyright",
+        "rust-analyzer",
       },
     },
+  },
+
+  {
+    "rust-lang/rust.vim",
+    ft = "rust",
+    init = function()
+      vim.g.rustfmt_autosave = 1
+    end,
   },
 
   -- TODO: seperate configs
