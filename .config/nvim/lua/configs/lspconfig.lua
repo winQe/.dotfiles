@@ -27,6 +27,14 @@ lspconfig.clangd.setup {
   on_attach = on_attach,
   on_init = on_init,
   capabilities = capabilities,
+  cmd = {
+    -- see clangd --help-hidden
+    "clangd",
+    -- by default, clang-tidy use -checks=clang-diagnostic-*,clang-analyzer-*
+    -- to add more checks, create .clang-tidy file in the root directory
+    -- and add Checks key, see https://clang.llvm.org/extra/clang-tidy/
+    "--clang-tidy",
+  },
 }
 
 lspconfig.rust_analyzer.setup {
