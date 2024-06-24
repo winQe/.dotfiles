@@ -158,4 +158,18 @@ return {
     },
     lazy = false,
   },
+  {
+    "danymat/neogen",
+    config = true,
+    cmd = {
+      "Neogen",
+    },
+  },
+  {
+    "numToStr/Comment.nvim",
+    config = function()
+      require("Comment").setup()
+    end,
+    lazy = false,
+  },
 }
