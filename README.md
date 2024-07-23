@@ -24,6 +24,12 @@ To avoid problem while running tmux + nvim inside docker container, use latest v
 ```sh
 brew install tmux --HEAD
 ```
+
+### Install Rust and Cargo
+```sh
+curl https://sh.rustup.rs -sSf | sh
+```
+
 ### Install Oh My Zsh
 
 ```sh
