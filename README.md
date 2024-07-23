@@ -17,7 +17,7 @@ First, install [Homebrew](https://www.digitalocean.com/community/tutorials/how-t
 Use Homebrew to install the necessary packages:
 
 ```sh
-brew install zsh ripgrep fzf eza zoxide vivid nvim stow lazygit starship 
+brew install zsh ripgrep fzf eza zoxide vivid nvim stow lazygit starship npm
 ``` 
 
 To avoid problem while running tmux + nvim inside docker container, use latest version of tmux
