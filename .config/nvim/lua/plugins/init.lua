@@ -132,6 +132,7 @@ return {
       save_path = "~/Pictures",
       has_breadcrumbs = true,
       bg_theme = "grape",
+      has_line_number = true,
     },
   },
 
