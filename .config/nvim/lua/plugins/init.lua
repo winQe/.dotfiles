@@ -128,6 +128,7 @@ return {
       { "<leader>pc", "<cmd>CodeSnap<cr>", mode = "x", desc = "Save selected code snapshot into clipboard" },
       { "<leader>ps", "<cmd>CodeSnapSave<cr>", mode = "x", desc = "Save selected code snapshot in ~/Pictures" },
     },
+    cmd = { "CodeSnapHighlight", "CodeSnap" },
     opts = {
       save_path = "~/Pictures",
       has_breadcrumbs = true,
