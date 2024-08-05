@@ -201,4 +201,16 @@ return {
     { "<c-s>", mode = { "c" }, function() require("flash").toggle() end, desc = "Toggle Flash Search" },
   },
   },
+  {
+    "m4xshen/hardtime.nvim",
+    dependencies = { "MunifTanjim/nui.nvim", "nvim-lua/plenary.nvim" },
+    opts = {
+      enabled = true,
+    },
+    cmd = { "Hardtime" },
+    config = function()
+      require("hardtime").setup()
+    end,
+    lazy = "false",
+  },
 }
