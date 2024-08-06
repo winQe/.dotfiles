@@ -1,0 +1,13 @@
+eza
+fzf
+git-delta
+lazygit
+neovim
+node
+ripgrep
+starship
+stow
+vivid
+xclip
+zoxide
+zsh
