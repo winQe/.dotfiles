@@ -250,11 +250,8 @@ return {
     event = "VeryLazy",
     config = function()
       require("noice").setup {
-        routes = {
-          {
-            view = "notify",
-            filter = { event = "msg_showmode" },
-          },
+        messages = {
+          enabled = false,
         },
         lsp = {
           signature = {
