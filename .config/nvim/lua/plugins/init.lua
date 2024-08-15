@@ -31,6 +31,7 @@ return {
         "eslint-lsp",
         "pyright",
         "rust-analyzer",
+        "gopls",
       },
     },
   },
