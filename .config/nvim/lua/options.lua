@@ -13,4 +13,5 @@ vim.api.nvim_set_hl(0, "NoiceCmdlinePopupBorder", { fg = "#89dceb" })
 vim.api.nvim_set_hl(0, "FlashLabel", { bg = "#eba0ac", fg = "#11111b" })
 
 vim.cmd "Hardtime enable" -- enable Hardtime nvim
+vim.cmd "TSContextEnable" -- enable nvim-treesitter-context
 -- o.cursorlineopt ='both' -- to enable cursorline!
