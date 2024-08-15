@@ -14,7 +14,7 @@ map(
   { noremap = true, silent = false, desc = "Generate docs" }
 )
 
-vim.keymap.set("n", "zR", require("ufo").openAllFolds)
-vim.keymap.set("n", "zM", require("ufo").closeAllFolds)
+-- vim.keymap.set("n", "zR", require("ufo").openAllFolds)
+-- vim.keymap.set("n", "zM", require("ufo").closeAllFolds)
 
 -- map({ "n", "i", "v" }, "<C-s>", "<cmd> w <cr>")
