@@ -99,3 +99,16 @@ alias ls="eza --icons --git"
 eval "$(starship init zsh)"
 alias cat='bat'
 source "$HOME/.cargo/env"
+
+export LANG=en_US.UTF-8
+export LANGUAGE=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
+
+# Atuin
+. "$HOME/.atuin/bin/env"
+eval "$(atuin init zsh)"
+
+source /opt/ros/galactic/setup.zsh
+alias ss='source /navigation_ws/install/setup.zsh'
+export LD_LIBRARY_PATH=/navigation_ws/simulation_publisher/thirdparty/lib:
+ss
