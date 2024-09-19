@@ -4,7 +4,7 @@
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
-plugins=(git zsh-autosuggestions)
+plugins=(git zsh-autosuggestions zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -107,6 +107,8 @@ export LC_ALL=en_US.UTF-8
 # Atuin
 . "$HOME/.atuin/bin/env"
 eval "$(atuin init zsh)"
+
+export GIT_EDITOR=nvim
 
 source /opt/ros/galactic/setup.zsh
 alias ss='source /navigation_ws/install/setup.zsh'
