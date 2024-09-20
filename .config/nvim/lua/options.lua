@@ -11,6 +11,10 @@ o.termguicolors = true
 -- Set colors for extensions
 vim.api.nvim_set_hl(0, "NoiceCmdlinePopupBorder", { fg = "#89dceb" })
 vim.api.nvim_set_hl(0, "FlashLabel", { bg = "#eba0ac", fg = "#11111b" })
+vim.api.nvim_set_hl(0, "CurSearch", { bg = "#f02993", fg = "#11111b" })
+vim.api.nvim_set_hl(0, "IlluminatedWordText", { bg = "#333245" })
+vim.api.nvim_set_hl(0, "IlluminatedWordRead", { bg = "#333245" })
+vim.api.nvim_set_hl(0, "IlluminatedWordWrite", { bg = "#333245" })
 
 vim.g.matchparent_timeout = 2
 vim.g.matchparent_insert_timeout = 2
