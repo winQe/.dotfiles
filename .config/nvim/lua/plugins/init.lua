@@ -367,4 +367,9 @@ return {
     "jinh0/eyeliner.nvim",
     lazy = false,
   },
+
+  {
+    "mg979/vim-visual-multi",
+    lazy = false,
+  },
 }
