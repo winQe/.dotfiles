@@ -181,10 +181,7 @@ return {
       },
       modes = {
         char = {
-          jump_labels = true,
-          jump = {
-            autojump = true,
-          },
+          enabled = false,
           highlight = { backdrop = false },
         },
       },
