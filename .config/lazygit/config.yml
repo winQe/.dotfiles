@@ -28,3 +28,4 @@ gui:
     '*': '#b4befe'
 
 disableForcePushing: true
+promptToReturnFromSubprocess: false
