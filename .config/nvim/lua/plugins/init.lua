@@ -342,6 +342,7 @@ return {
     end,
     lazy = false,
   },
+
   {
     "OXY2DEV/markview.nvim",
     lazy = false, -- Recommended
@@ -356,8 +357,14 @@ return {
       "nvim-tree/nvim-web-devicons",
     },
   },
+
   {
     "RRethy/vim-illuminate",
+    lazy = false,
+  },
+
+  {
+    "jinh0/eyeliner.nvim",
     lazy = false,
   },
 }
