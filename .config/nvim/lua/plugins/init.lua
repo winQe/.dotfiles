@@ -360,16 +360,31 @@ return {
 
   {
     "RRethy/vim-illuminate",
-    lazy = false,
+    event = "VeryLazy",
   },
 
   {
     "jinh0/eyeliner.nvim",
-    lazy = false,
+    event = "VeryLazy",
   },
 
   {
-    "mg979/vim-visual-multi",
-    lazy = false,
+    "smoka7/multicursors.nvim",
+    event = "VeryLazy",
+    dependencies = {
+      "nvimtools/hydra.nvim",
+    },
+    opts = {},
+    cmd = { "MCstart", "MCvisual", "MCclear", "MCpattern", "MCvisualPattern", "MCunderCursor" },
+    keys = {
+      {
+        mode = { "v", "n" },
+        "<leader>v",
+        "<cmd>MCstart<cr>",
+        desc = "Create a selection for selected text or word under the cursor",
+      },
+    },
   },
+
+  { "sindrets/diffview.nvim", event = "VeryLazy" },
 }

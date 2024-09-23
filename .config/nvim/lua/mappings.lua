@@ -14,11 +14,6 @@ map(
   { noremap = true, silent = false, desc = "Generate docs" }
 )
 
--- vim visual multi
-map("n", "<C-x>", "<Plug>(VM-Find-Under)")
-map("n", "<C-x>", "<Plug>(VM-Find-Subword-Under)")
-map("n", "<M-u>", "<Plug>(VM-Select-Cursor-Up)")
-map("n", "<M-d>", "<Plug>(VM-Select-Cursor-Down)")
 -- vim.keymap.set("n", "zR", require("ufo").openAllFolds)
 -- vim.keymap.set("n", "zM", require("ufo").closeAllFolds)
 
