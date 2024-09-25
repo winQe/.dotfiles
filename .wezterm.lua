@@ -11,8 +11,8 @@ end)
 local config = wezterm.config_builder()
 
 -- This is where you actually apply your config choices
-config.font = wezterm.font("Fira Code Nerd Font", { weight = "DemiBold" })
-config.font_size = 10.5
+config.font = wezterm.font("JetBrainsMono Nerd Font", { weight = "DemiBold" })
+config.font_size = 11.0
 config.enable_tab_bar = false
 
 config.colors = {

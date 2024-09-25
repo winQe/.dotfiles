@@ -56,3 +56,7 @@ git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 ```
 Press prefix + I (capital i, as in Install) to fetch the plugin.
 
+
+## Oh My Zsh Plugins
+https://github.com/zsh-users/zsh-autosuggestions
+https://github.com/zsh-users/zsh-syntax-highlighting
