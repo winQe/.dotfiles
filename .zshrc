@@ -97,7 +97,7 @@ alias lt="eza --tree --level=2 --long --icons --git -h"
 alias ls="eza --icons --git"
 #
 eval "$(starship init zsh)"
-alias cat='bat'
+# alias cat='bat'
 source "$HOME/.cargo/env"
 
 export LANG=en_US.UTF-8
@@ -114,3 +114,6 @@ source /opt/ros/galactic/setup.zsh
 alias ss='source /navigation_ws/install/setup.zsh'
 export LD_LIBRARY_PATH=/navigation_ws/simulation_publisher/thirdparty/lib:
 ss
+
+export ROS_DOMAIN_ID=14
+export PATH="/opt/homebrew/opt/git/bin:$PATH"

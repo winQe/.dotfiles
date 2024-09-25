@@ -397,6 +397,7 @@ return {
     end,
     event = "VeryLazy",
   },
+
   {
     "uga-rosa/translate.nvim",
     event = "VeryLazy",
@@ -408,5 +409,13 @@ return {
         },
       }
     end,
+  },
+
+  {
+    "max397574/better-escape.nvim",
+    config = function()
+      require("better_escape").setup()
+    end,
+    event = "VeryLazy",
   },
 }
