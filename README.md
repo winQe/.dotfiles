@@ -18,7 +18,7 @@ Use Homebrew to install the necessary packages:
 
 ```sh
 brew install zsh ripgrep fzf eza zoxide vivid nvim stow lazygit starship npm git-delta
-``` 
+```
 
 To avoid problem while running tmux + nvim inside docker container, use latest version of tmux
 ```sh
@@ -51,7 +51,7 @@ git restore
 
 ## Tmux Plugins
 Clone and install tpm
-```
+```sh
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 ```
 Press prefix + I (capital i, as in Install) to fetch the plugin.
