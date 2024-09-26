@@ -397,4 +397,16 @@ return {
     end,
     event = "VeryLazy",
   },
+  {
+    "uga-rosa/translate.nvim",
+    event = "VeryLazy",
+    config = function()
+      require("translate").setup {
+        default = {
+          command = "google",
+          output ="replace"
+        },
+      }
+    end,
+  },
 }
