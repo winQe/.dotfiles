@@ -12,15 +12,15 @@ vim.keymap.set({ "n", "v" }, "<c-down>", function()
 end, { desc = "Add cursor below" })
 
 -- Add a cursor and jump to the next word under cursor.
-vim.keymap.set({ "n", "v" }, "<leader>vv", function()
+vim.keymap.set({ "n", "v" }, "<leader>v", function()
   mc.addCursor "*"
 end, { desc = "Add a cursor and jump to next word under cursor" })
 
--- Jump to the next word under cursor but do not add a cursor.
-vim.keymap.set({ "n", "v" }, "<leader>vn", function()
-  mc.skipCursor "*"
-end, { desc = "Jump to next word under cursor" })
-
+-- -- Jump to the next word under cursor but do not add a cursor.
+-- vim.keymap.set({ "n", "v" }, "<leader>vn", function()
+--   mc.skipCursor "*"
+-- end, { desc = "Jump to next word under cursor" })
+--
 -- Rotate the main cursor.
 vim.keymap.set({ "n", "v" }, "<left>", mc.nextCursor)
 vim.keymap.set({ "n", "v" }, "<right>", mc.prevCursor)
