@@ -13,9 +13,8 @@ map(
   ":lua require('neogen').generate()<CR>",
   { noremap = true, silent = false, desc = "Generate docs" }
 )
-map({"n","v"}, "<leader>te", ":Translate EN<CR>", {silent=true, desc = "Translate to EN"})
+map({ "n", "v" }, "<leader>te", ":Translate EN<CR>", { silent = true, desc = "Translate to EN" })
 
 -- vim.keymap.set("n", "zR", require("ufo").openAllFolds)
 -- vim.keymap.set("n", "zM", require("ufo").closeAllFolds)
-
 -- map({ "n", "i", "v" }, "<C-s>", "<cmd> w <cr>")
