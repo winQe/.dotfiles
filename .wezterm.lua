@@ -46,6 +46,11 @@ config.colors = {
 		"#eff1f5", -- bright white
 	},
 }
-
+config.window_padding = {
+	left = 2,
+	right = 0,
+	top = 0,
+	bottom = 0,
+}
 -- and finally, return the configuration to wezterm
 return config
