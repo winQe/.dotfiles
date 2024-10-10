@@ -56,6 +56,16 @@ git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 ```
 Press prefix + I (capital i, as in Install) to fetch the plugin.
 
+## Atuin
+``` sh
+curl --proto '=https' --tlsv1.2 -LsSf https://setup.atuin.sh | sh
+```
+To login
+
+``` sh
+atuin login
+```
+
 
 ## Oh My Zsh Plugins
 https://github.com/zsh-users/zsh-autosuggestions
