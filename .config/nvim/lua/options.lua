@@ -19,7 +19,7 @@ vim.api.nvim_set_hl(0, "IlluminatedWordWrite", { bg = "#333245" })
 vim.g.matchparent_timeout = 2
 vim.g.matchparent_insert_timeout = 2
 
-vim.cmd "Hardtime enable" -- enable Hardtime nvim
+-- vim.cmd "Hardtime enable" -- enable Hardtime nvim
 -- vim.cmd "TSContextEnable" -- enable nvim-treesitter-context
 -- vim.cmd "UfoDisable"
 -- o.cursorlineopt ='both' -- to enable cursorline!

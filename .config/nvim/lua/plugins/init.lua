@@ -96,6 +96,9 @@ return {
         ["cpp"] = {
           before = { "#include <bits/stdc++.h>", "#include <vector>", "#include <string>", "using namespace std;" },
         },
+        ["rust"] = {
+          before = { "struct Solution;" },
+        },
       },
     },
     lazy = false,
@@ -230,19 +233,20 @@ return {
     },
   },
 
-  {
-    "m4xshen/hardtime.nvim",
-    dependencies = { "MunifTanjim/nui.nvim", "nvim-lua/plenary.nvim" },
-    opts = {
-      enabled = true,
-    },
-    cmd = { "Hardtime" },
-    config = function()
-      require("hardtime").setup()
-    end,
-    lazy = "false",
-  },
+  -- {
+  --   "m4xshen/hardtime.nvim",
+  --   dependencies = { "MunifTanjim/nui.nvim", "nvim-lua/plenary.nvim" },
+  --   opts = {
+  --     enabled = true,
+  --   },
+  --   cmd = { "Hardtime" },
+  --   config = function()
+  --     require("hardtime").setup()
+  --   end,
+  --   lazy = "false",
+  -- },
   -- lazy.nvim
+  --
   {
     "folke/noice.nvim",
     event = "VeryLazy",
