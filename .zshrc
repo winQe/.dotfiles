@@ -8,23 +8,12 @@ plugins=(git zsh-autosuggestions zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
 
-#sudo bash ~/apollo/docker/scripts/dev_into.sh
-#source ~/apollo/cyber/setup.bash
-
-#export PATH="$HOME/.pyenv/bin:$PATH"
-#eval "$(pyenv init -)"
-#eval "$(pyenv virtualenv-init -)"
-
-#export PATH=/usr/bin:$PATH
-#export DOCKER_HOST=unix:///run/user/1000/docker.sock
-
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
 
 export VTD_ROOT=$HOME/VIRES/VTD.2021
 
-## >>> conda initialize >>>
 ## !! Contents within this block are managed by 'conda init' !!
 __conda_setup="$('/home/avt/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
 if [ $? -eq 0 ]; then
@@ -37,26 +26,12 @@ else
    fi
 fi
 unset __conda_setup
-# <<< conda initialize <<<
 
 #alias python3='/usr/bin/python3'
 export PATH=/usr/local/cuda-11.8/bin:$PATH
 export LD_LIBRARY_PATH=/usr/local/cuda-11.8/lib64:$LD_LIBRARY_PATH
-export APOLLO_ROOT_DIR=/home/avt/apollo
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/avt/.mujoco/mujoco210/bin
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/lib/nvidia
-#source /opt/ros/noetic/setup.zsh
-export PATH=/usr/lib/qt5/bin/:$PATH
-
-# # FastDDS
-# export PATH=$PATH:/home/avt/fastdds_v2.12.0/bin/
-# export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/avt/fastdds_v2.12.0/lib/
-# export FASTDDSHOME=/home/avt/fastdds_v2.12.0/
-#
-# source  /home/avt/fastdds_python/install/setup.bash
-
-# gRPC
-export PATH=$PATH:/home/avt/grpc/install/bin/
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
@@ -75,7 +50,7 @@ bindkey jk vi-cmd-mode
 # Created by `pipx` on 2024-05-17 08:45:12
 export PATH="$PATH:/home/avt/.local/bin"
 
-alias wezterm='flatpak run org.wezfurlong.wezterm'
+# alias wezterm='flatpak run org.wezfurlong.wezterm'
 
 eval "$(zoxide init --cmd cd zsh)"
 
@@ -100,20 +75,10 @@ eval "$(starship init zsh)"
 # alias cat='bat'
 source "$HOME/.cargo/env"
 
-export LANG=en_US.UTF-8
-export LANGUAGE=en_US.UTF-8
-export LC_ALL=en_US.UTF-8
-
 # Atuin
 . "$HOME/.atuin/bin/env"
 eval "$(atuin init zsh)"
 
 export GIT_EDITOR=nvim
 
-source /opt/ros/galactic/setup.zsh
-alias ss='source /navigation_ws/install/setup.zsh'
-export LD_LIBRARY_PATH=/navigation_ws/simulation_publisher/thirdparty/lib:
-ss
-
-export ROS_DOMAIN_ID=14
 export PATH="/opt/homebrew/opt/git/bin:$PATH"
