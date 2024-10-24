@@ -436,4 +436,6 @@ return {
       },
     },
   },
+
+  { 'pteroctopus/faster.nvim' },
 }
