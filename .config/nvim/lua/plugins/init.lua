@@ -90,7 +90,13 @@ return {
       require "configs.rainbow"
     end
   },
-
+  {
+    "lukas-reineke/indent-blankline.nvim",
+    main = "ibl",
+    ---@module "ibl"
+    ---@type ibl.config
+    opts = {},
+  },
 
   -- Git Integration
   {
