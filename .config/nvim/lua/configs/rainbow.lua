@@ -1,4 +1,4 @@
--- This module contains a number of default definitions
+-- Importing rainbow delimiters and setting up
 local rainbow_delimiters = require 'rainbow-delimiters'
 
 require('rainbow-delimiters.setup').setup {
@@ -34,16 +34,16 @@ local highlight = {
     "RainbowCyan",
 }
 local hooks = require "ibl.hooks"
--- create the highlight groups in the highlight setup hook, so they are reset
--- every time the colorscheme changes
+
+-- Define Catppuccin Mocha colors for each delimiter
 hooks.register(hooks.type.HIGHLIGHT_SETUP, function()
-    vim.api.nvim_set_hl(0, "RainbowRed", { fg = "#E06C75" })
-    vim.api.nvim_set_hl(0, "RainbowYellow", { fg = "#E5C07B" })
-    vim.api.nvim_set_hl(0, "RainbowBlue", { fg = "#61AFEF" })
-    vim.api.nvim_set_hl(0, "RainbowOrange", { fg = "#D19A66" })
-    vim.api.nvim_set_hl(0, "RainbowGreen", { fg = "#98C379" })
-    vim.api.nvim_set_hl(0, "RainbowViolet", { fg = "#C678DD" })
-    vim.api.nvim_set_hl(0, "RainbowCyan", { fg = "#56B6C2" })
+    vim.api.nvim_set_hl(0, "RainbowRed", { fg = "#F38BA8" })     -- Catppuccin Mocha Red
+    vim.api.nvim_set_hl(0, "RainbowYellow", { fg = "#F9E2AF" })  -- Catppuccin Mocha Yellow
+    vim.api.nvim_set_hl(0, "RainbowBlue", { fg = "#89B4FA" })    -- Catppuccin Mocha Blue
+    vim.api.nvim_set_hl(0, "RainbowOrange", { fg = "#FAB387" })  -- Catppuccin Mocha Peach
+    vim.api.nvim_set_hl(0, "RainbowGreen", { fg = "#A6E3A1" })   -- Catppuccin Mocha Green
+    vim.api.nvim_set_hl(0, "RainbowViolet", { fg = "#CBA6F7" })  -- Catppuccin Mocha Lavender
+    vim.api.nvim_set_hl(0, "RainbowCyan", { fg = "#94E2D5" })    -- Catppuccin Mocha Teal
 end)
 
 vim.g.rainbow_delimiters = { highlight = highlight }
