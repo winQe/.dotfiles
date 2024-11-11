@@ -82,6 +82,15 @@ return {
       "nvim-tree/nvim-web-devicons",
     },
   },
+  {
+    'HiPhish/rainbow-delimiters.nvim',
+    event = { "BufReadPre", "BufNewFile" },
+    dependencies = { 'nvim-treesitter/nvim-treesitter' },
+    config = function()
+      require "configs.rainbow"
+    end
+  },
+
 
   -- Git Integration
   {
