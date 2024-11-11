@@ -182,7 +182,10 @@ return {
       },
     },
   },
-  { "pteroctopus/faster.nvim" },
+  {
+    "pteroctopus/faster.nvim" ,
+    event = "VeryLazy",
+  },
 
   -- Miscellaneous
   {
