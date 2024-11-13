@@ -4,10 +4,9 @@ This repository contains my personal dotfiles and configuration files. This guid
 
 ## Prerequisites
 
-### Install Homebrew
+### Install Homebrew (skip if using Arch)
 
-First, install [Homebrew](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-homebrew-on-linux), the macOS package manager:
-
+First, install [Homebrew](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-homebrew-on-linux), the macOS package manager
 ```sh
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 ```
@@ -23,6 +22,11 @@ brew install zsh ripgrep fzf eza zoxide vivid nvim stow lazygit starship npm git
 To avoid problem while running tmux + nvim inside docker container, use latest version of tmux
 ```sh
 brew install tmux --HEAD
+
+```
+If you're using any `Arch` based distro, you can use pacman directly
+```sh
+sudo pacman -S zsh ripgrep fzf eza zoxide vivid nvim stow lazygit starship npm git-delta xclip xsel tmux
 ```
 
 ### Install Rust and Cargo
