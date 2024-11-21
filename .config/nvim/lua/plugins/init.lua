@@ -183,10 +183,10 @@ return {
       },
     },
   },
-  {
-    "pteroctopus/faster.nvim" ,
-    event = "VeryLazy",
-  },
+  -- {
+  --   "pteroctopus/faster.nvim",
+  --   event = "VeryLazy",
+  -- },
 
   -- Miscellaneous
   {
@@ -197,7 +197,7 @@ return {
     "mistricky/codesnap.nvim",
     build = "make",
     keys = {
-      { "<leader>pc", "<cmd>CodeSnap<cr>", mode = "x", desc = "Save code snapshot to clipboard" },
+      { "<leader>pc", "<cmd>CodeSnap<cr>",     mode = "x", desc = "Save code snapshot to clipboard" },
       { "<leader>ps", "<cmd>CodeSnapSave<cr>", mode = "x", desc = "Save code snapshot to ~/Pictures" },
     },
     cmd = { "CodeSnapHighlight", "CodeSnap" },
@@ -223,20 +223,20 @@ return {
     lazy = false,
   },
   {
-  "folke/snacks.nvim",
-  priority = 1000,
-  lazy = false,
-  opts = require "configs.snacks",
-  keys = {
-      { "<leader>un", function() Snacks.notifier.hide() end, desc = "Dismiss All Notifications" },
-      { "<leader>lg", function() Snacks.lazygit() end, desc = "Lazygit" },
-      { "<leader>gb", function() Snacks.git.blame_line() end, desc = "Git Blame Line" },
-      { "<leader>gB", function() Snacks.gitbrowse() end, desc = "Git Browse" },
-      { "<leader>gf", function() Snacks.lazygit.log_file() end, desc = "Lazygit Current File History" },
-      { "<leader>gl", function() Snacks.lazygit.log() end, desc = "Lazygit Log (cwd)" },
-      { "<leader>cR", function() Snacks.rename.rename_file() end, desc = "Rename File" },
-      { "]]",         function() Snacks.words.jump(vim.v.count1) end, desc = "Next Reference", mode = { "n", "t" } },
-      { "[[",         function() Snacks.words.jump(-vim.v.count1) end, desc = "Prev Reference", mode = { "n", "t" } },
+    "folke/snacks.nvim",
+    priority = 1000,
+    lazy = false,
+    opts = require "configs.snacks",
+    keys = {
+      { "<leader>un", function() Snacks.notifier.hide() end,           desc = "Dismiss All Notifications" },
+      { "<leader>lg", function() Snacks.lazygit() end,                 desc = "Lazygit" },
+      { "<leader>gb", function() Snacks.git.blame_line() end,          desc = "Git Blame Line" },
+      { "<leader>gB", function() Snacks.gitbrowse() end,               desc = "Git Browse" },
+      { "<leader>gf", function() Snacks.lazygit.log_file() end,        desc = "Lazygit Current File History" },
+      { "<leader>gl", function() Snacks.lazygit.log() end,             desc = "Lazygit Log (cwd)" },
+      { "<leader>cR", function() Snacks.rename.rename_file() end,      desc = "Rename File" },
+      { "]]",         function() Snacks.words.jump(vim.v.count1) end,  desc = "Next Reference",              mode = { "n", "t" } },
+      { "[[",         function() Snacks.words.jump(-vim.v.count1) end, desc = "Prev Reference",              mode = { "n", "t" } },
     }
   },
 
