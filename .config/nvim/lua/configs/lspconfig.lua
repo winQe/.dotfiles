@@ -5,7 +5,7 @@ local capabilities = require("nvchad.configs.lspconfig").capabilities
 
 local lspconfig = require "lspconfig"
 local util = require "lspconfig/util"
-local servers = { "html", "cssls", "eslint", "pyright" }
+local servers = { "html", "cssls", "eslint", "pyright", "bufls" }
 
 -- lsps with default config
 for _, lsp in ipairs(servers) do
@@ -39,6 +39,7 @@ lspconfig.clangd.setup {
   on_attach = on_attach,
   on_init = on_init,
   capabilities = capabilities,
+  filetypes = { "cpp", "c", "cxx", "h", "hpp" },
   cmd = {
     -- see clangd --help-hidden
     "clangd",
