@@ -2,7 +2,7 @@ local harpoon = require "harpoon"
 
 harpoon:setup {}
 
-vim.keymap.set("n", "<leader>m", function()
+vim.keymap.set("n", "<leader>hm", function()
   harpoon:list():add()
 end, { desc = "Harpoon Add", silent = false })
 
@@ -26,15 +26,15 @@ local function toggle_telescope(harpoon_files)
   end
 
   require("telescope.pickers")
-    .new({}, {
-      prompt_title = "Harpoon",
-      finder = require("telescope.finders").new_table {
-        results = file_paths,
-      },
-      previewer = conf.file_previewer {},
-      sorter = conf.generic_sorter {},
-    })
-    :find()
+      .new({}, {
+        prompt_title = "Harpoon",
+        finder = require("telescope.finders").new_table {
+          results = file_paths,
+        },
+        previewer = conf.file_previewer {},
+        sorter = conf.generic_sorter {},
+      })
+      :find()
 end
 
 vim.keymap.set("n", "<leader>fh", function()
