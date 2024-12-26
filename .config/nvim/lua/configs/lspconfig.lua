@@ -2,6 +2,7 @@
 local on_attach = require("nvchad.configs.lspconfig").on_attach
 local on_init = require("nvchad.configs.lspconfig").on_init
 local capabilities = require("nvchad.configs.lspconfig").capabilities
+capabilities = require("blink.cmp").get_lsp_capabilities(capabilities)
 
 local lspconfig = require "lspconfig"
 local util = require "lspconfig/util"

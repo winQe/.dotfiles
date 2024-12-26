@@ -2,6 +2,7 @@ return {
   -- LSP and Formatting Plugins
   {
     "neovim/nvim-lspconfig",
+    dependencies = { "saghen/blink.cmp" },
     config = function()
       require("nvchad.configs.lspconfig").defaults()
       require "configs.lspconfig"
@@ -25,6 +26,15 @@ return {
         "gopls",
       },
     },
+  },
+  {
+    "saghen/blink.cmp",
+    -- optional: provides snippets for the snippet source
+    dependencies = "rafamadriz/friendly-snippets",
+    -- use a release tag to download pre-built binaries
+    version = "*",
+    opts = require "configs.blink",
+    opts_extend = { "sources.default" },
   },
   {
     "stevearc/conform.nvim",
