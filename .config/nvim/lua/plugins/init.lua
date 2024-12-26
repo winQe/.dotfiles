@@ -37,6 +37,11 @@ return {
     opts_extend = { "sources.default" },
   },
   {
+    "windwp/nvim-autopairs",
+    event = "InsertEnter",
+    config = true,
+  },
+  {
     "stevearc/conform.nvim",
     event = "BufWritePre",
     config = function()
