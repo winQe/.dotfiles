@@ -34,9 +34,7 @@ return {
       auto_show = true,
       auto_show_delay_ms = 200,
     },
-    ghost_text = {
-      enabled = vim.g.ai_cmp,
-    },
+    list = { selection = { preselect = function(ctx) return ctx.mode ~= 'cmdline' end } },
   },
 
   -- Default list of enabled providers defined so that you can extend it
