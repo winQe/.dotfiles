@@ -38,5 +38,3 @@ require "nvchad.autocmds"
 vim.schedule(function()
   require "mappings"
 end)
-
-vim.api.nvim_set_hl(0, "Substitute", { bg = "#f38ba8", fg = "#1e1e2e" })
