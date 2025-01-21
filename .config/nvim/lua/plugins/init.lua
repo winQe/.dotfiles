@@ -212,7 +212,7 @@ return {
     "mistricky/codesnap.nvim",
     build = "make",
     keys = {
-      { "<leader>pc", "<cmd>CodeSnap<cr>",     mode = "x", desc = "Save code snapshot to clipboard" },
+      { "<leader>pc", "<cmd>CodeSnap<cr>", mode = "x", desc = "Save code snapshot to clipboard" },
       { "<leader>ps", "<cmd>CodeSnapSave<cr>", mode = "x", desc = "Save code snapshot to ~/Pictures" },
     },
     cmd = { "CodeSnapHighlight", "CodeSnap" },
@@ -310,6 +310,10 @@ return {
       },
     },
   },
+  {
+    "nvzone/typr",
+    event = "VeryLazy",
+  },
 
   -- UI and Notifications
   {
@@ -339,9 +343,9 @@ return {
       -- configurations go here
     },
     config = function()
-      require("barbecue").setup({
+      require("barbecue").setup {
         create_autocmd = false, -- prevent barbecue from updating itself automatically
-      })
+      }
 
       vim.api.nvim_create_autocmd({
         "WinScrolled", -- or WinResized on NVIM-v0.9 and higher
