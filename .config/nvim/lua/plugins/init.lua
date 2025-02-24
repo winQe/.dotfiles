@@ -216,6 +216,10 @@ return {
       { "<c-\\>", "<cmd><C-U>TmuxNavigatePrevious<cr>" },
     },
   },
+  {
+    'RyanMillerC/better-vim-tmux-resizer',
+    event = 'VeryLazy'
+  },
   -- {
   --   "pteroctopus/faster.nvim",
   --   event = "VeryLazy",
