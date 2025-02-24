@@ -198,6 +198,24 @@ return {
       },
     },
   },
+  {
+    "christoomey/vim-tmux-navigator",
+    cmd = {
+      "TmuxNavigateLeft",
+      "TmuxNavigateDown",
+      "TmuxNavigateUp",
+      "TmuxNavigateRight",
+      "TmuxNavigatePrevious",
+      "TmuxNavigatorProcessList",
+    },
+    keys = {
+      { "<c-h>",  "<cmd><C-U>TmuxNavigateLeft<cr>" },
+      { "<c-j>",  "<cmd><C-U>TmuxNavigateDown<cr>" },
+      { "<c-k>",  "<cmd><C-U>TmuxNavigateUp<cr>" },
+      { "<c-l>",  "<cmd><C-U>TmuxNavigateRight<cr>" },
+      { "<c-\\>", "<cmd><C-U>TmuxNavigatePrevious<cr>" },
+    },
+  },
   -- {
   --   "pteroctopus/faster.nvim",
   --   event = "VeryLazy",
@@ -212,7 +230,7 @@ return {
     "mistricky/codesnap.nvim",
     build = "make",
     keys = {
-      { "<leader>pc", "<cmd>CodeSnap<cr>", mode = "x", desc = "Save code snapshot to clipboard" },
+      { "<leader>pc", "<cmd>CodeSnap<cr>",     mode = "x", desc = "Save code snapshot to clipboard" },
       { "<leader>ps", "<cmd>CodeSnapSave<cr>", mode = "x", desc = "Save code snapshot to ~/Pictures" },
     },
     cmd = { "CodeSnapHighlight", "CodeSnap" },
@@ -311,8 +329,9 @@ return {
     },
   },
   {
-    "nvzone/typr",
-    event = "VeryLazy",
+    "NStefan002/speedtyper.nvim",
+    lazy = false,
+    branch = "v2",
   },
 
   -- UI and Notifications
