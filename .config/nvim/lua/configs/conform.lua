@@ -2,13 +2,13 @@ local options = {
   formatters_by_ft = {
     lua = { "luaformatter" },
     cpp = { "clang-format" },
-    typescript = { { "prettierd", "prettier" } },
-    typescriptreact = { { "prettierd", "prettier" } },
-    javascript = { { "prettierd", "prettier" } },
-    javascriptreact = { { "prettierd", "prettier" } },
-    json = { { "prettierd", "prettier" } },
-    html = { { "prettierd", "prettier" } },
-    css = { { "prettierd", "prettier" } },
+    typescript = { "prettierd", "prettier" },
+    typescriptreact = { "prettierd", "prettier" },
+    javascript = { "prettierd", "prettier" },
+    javascriptreact = { "prettierd", "prettier" },
+    json = { "prettierd", "prettier" },
+    html = { "prettierd", "prettier" },
+    css = { "prettierd", "prettier" },
   },
 
   format_on_save = function(bufnr)
@@ -63,7 +63,7 @@ vim.keymap.set({ "v" }, "<leader>fm", function()
 
     range = {
       start = { start_line - 1, 0 },
-        ["end"] = { end_line - 1, #end_line_content },
+      ["end"] = { end_line - 1, #end_line_content },
     }
   end
 
