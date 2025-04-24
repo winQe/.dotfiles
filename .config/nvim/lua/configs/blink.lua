@@ -8,7 +8,7 @@ return {
     ["<S-Tab>"] = { "select_prev", "fallback" },
     ["<Tab>"] = { "select_next", "fallback" },
   },
-
+  cmdline = { completion = { ghost_text = { enabled = false } } },
   appearance = {
     -- Sets the fallback highlight groups to nvim-cmp's highlight groups
     -- Useful for when your theme doesn't support blink.cmp
@@ -42,7 +42,4 @@ return {
   sources = {
     default = { "lsp", "path", "snippets", "buffer" },
   },
-  cmdline = {
-    sources =  {},
-  }
 }
