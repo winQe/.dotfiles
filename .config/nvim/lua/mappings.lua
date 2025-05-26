@@ -1,7 +1,5 @@
 require "nvchad.mappings"
 
--- add yours here
-
 local map = vim.keymap.set
 
 map("i", "jk", "<ESC>")
@@ -15,6 +13,12 @@ map(
 map({ "n", "v" }, "<leader>te", ":Translate EN<CR>", { silent = true, desc = "Translate to EN" })
 map("n",  "<leader>bd", ":BufOnly<CR>", { desc = "Close all other buffers" })
 
--- vim.keymap.set("n", "zR", require("ufo").openAllFolds)
--- vim.keymap.set("n", "zM", require("ufo").closeAllFolds)
--- map({ "n", "i", "v" }, "<C-s>", "<cmd> w <cr>")
+-- Smart dd: delete without yank if line is empty/whitespace
+map("n", "dd", function()
+  local line = vim.api.nvim_get_current_line()
+  if line:match("^%s*$") then
+    return "\"_dd"
+  else
+    return "dd"
+  end
+end, { expr = true, noremap = true, desc = "Smart dd (skip yank on empty lines)" })
