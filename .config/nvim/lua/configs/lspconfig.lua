@@ -1,8 +1,12 @@
--- EXAMPLE
 local on_attach = require("nvchad.configs.lspconfig").on_attach
 local on_init = require("nvchad.configs.lspconfig").on_init
 local capabilities = require("nvchad.configs.lspconfig").capabilities
 capabilities = require("blink.cmp").get_lsp_capabilities(capabilities)
+
+-- Disabled global diagnostic
+vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
+  virtual_text = false,
+})
 
 local lspconfig = require "lspconfig"
 local util = require "lspconfig/util"
