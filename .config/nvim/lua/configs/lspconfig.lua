@@ -44,6 +44,7 @@ lspconfig.clangd.setup {
   cmd = {
     -- see clangd --help-hidden
     "clangd",
+    "--query-driver=/usr/bin/c++,/usr/bin/g++,/usr/bin/gcc",
     "--background-index",
     -- by default, clang-tidy use -checks=clang-diagnostic-*,clang-analyzer-*
     -- to add more checks, create .clang-tidy file in the root directory
