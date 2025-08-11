@@ -408,12 +408,13 @@ return {
   },
 
   {
-    "epwalsh/obsidian.nvim",
-    version = "*", -- recommended, use latest release instead of latest commit
+    "obsidian-nvim/obsidian.nvim",
+    version = "*",
     lazy = true,
     ft = "markdown",
     dependencies = {
       "nvim-lua/plenary.nvim",
+      "saghen/blink.cmp"
     },
     opts = require "configs.obsidian",
   }
