@@ -4,7 +4,7 @@ require "nvchad.options"
 
 local o = vim.o
 o.relativenumber = true -- default is relative line number
-o.scrolloff = 5 -- minimum number of lines to keep above and below the cursor
+o.scrolloff = 5         -- minimum number of lines to keep above and below the cursor
 o.conceallevel = 1
 o.termguicolors = true
 
@@ -15,6 +15,7 @@ vim.api.nvim_set_hl(0, "CurSearch", { bg = "#f02993", fg = "#11111b" })
 vim.api.nvim_set_hl(0, "IlluminatedWordText", { bg = "#333245" })
 vim.api.nvim_set_hl(0, "IlluminatedWordRead", { bg = "#333245" })
 vim.api.nvim_set_hl(0, "IlluminatedWordWrite", { bg = "#333245" })
+vim.api.nvim_set_hl(0, "RenderMarkdownCode", { bg = "#11111b" })
 
 vim.g.matchparent_timeout = 2
 vim.g.matchparent_insert_timeout = 2

@@ -90,12 +90,12 @@ return {
     end,
   },
   {
-    "OXY2DEV/markview.nvim",
-    lazy = false,
-    dependencies = {
-      "nvim-treesitter/nvim-treesitter",
-      "nvim-tree/nvim-web-devicons",
-    },
+    'MeanderingProgrammer/render-markdown.nvim',
+    ft = "markdown",
+    dependencies = { 'nvim-treesitter/nvim-treesitter', 'echasnovski/mini.nvim' },
+    ---@module 'render-markdown'
+    ---@type render.md.UserConfig
+    opts = {},
   },
   {
     "HiPhish/rainbow-delimiters.nvim",
