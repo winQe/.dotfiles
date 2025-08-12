@@ -417,5 +417,6 @@ return {
       "saghen/blink.cmp"
     },
     opts = require "configs.obsidian",
+    keys = require "keymaps.obsidian",
   }
 }

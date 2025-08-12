@@ -15,23 +15,10 @@ return {
   templates = {
     folder = "Templates",
   },
-  mappings = {
-    ["<cr>"] = {
-      action = function()
-        return require("obsidian").util.smart_action()
-      end,
-      opts = { buffer = true, expr = true },
-    },
-    ["gd"] = {
-      action = function()
-        return require("obsidian").util.gf_passthrough()
-      end,
-      opts = { noremap = false, expr = true, buffer = true },
-    },
-  },
   ui = {
     enabled = false,
   },
+  legacy_commands = false,
   -- Optional, customize how note IDs are generated given an optional title.
   ---@param title string|?
   ---@return string
