@@ -9,17 +9,17 @@ return {
     buffer = true,
     desc = "Obsidian Smart Action"
   },
-  -- Go to definition (gd)
-  {
-    "gd",
-    function()
-      return require("obsidian").util.gf_passthrough()
-    end,
-    expr = true,
-    buffer = true,
-    noremap = false,
-    desc = "Obsidian Go to Definition"
-  },
+  -- -- Go to definition (gd)
+  -- {
+  --   "gd",
+  --   function()
+  --     return require("obsidian").util.gf_passthrough()
+  --   end,
+  --   expr = true,
+  --   buffer = true,
+  --   noremap = false,
+  --   desc = "Obsidian Go to Definition"
+  -- },
   -- Your custom keymaps
   {
     "<leader>oc",
@@ -30,22 +30,22 @@ return {
   },
   {
     "<leader>oo",
-    "<cmd>ObsidianOpen<CR>",
+    "<cmd>Obsidian open>",
     desc = "Open in Obsidian App"
   },
   {
     "<leader>ob",
-    "<cmd>ObsidianBacklinks<CR>",
+    "<cmd>Obsidian backlinks<CR>",
     desc = "Show Obsidian Backlinks"
   },
   {
     "<leader>ol",
-    "<cmd>ObsidianLinks<CR>",
+    "<cmd>Obsidian links<CR>",
     desc = "Show Obsidian Links"
   },
   {
     "<leader>on",
-    "<cmd>ObsidianNew<CR>",
+    "<cmd>Obsidian new<CR>",
     desc = "Create New Note"
   },
   {
@@ -55,17 +55,17 @@ return {
   },
   {
     "<leader>os",
-    "<cmd>ObsidianSearch<CR>",
+    "<cmd>Obsidian search<CR>",
     desc = "Search Obsidian"
   },
   {
     "<leader>oq",
-    "<cmd>ObsidianQuickSwitch<CR>",
+    "<cmd>Obsidian quick_switch<CR>",
     desc = "Quick Switch"
   },
   {
     "<leader>op",
-    "<cmd>ObsidianPasteImg<CR>",
+    "<cmd>Obsidian paste_img<CR>",
     desc = "Paste Image"
   },
   {
@@ -73,5 +73,10 @@ return {
     ":!rm '%:p'<CR>:bd<CR>",
     desc = "Delete File",
     silent = true
+  },
+  {
+    "gd",
+    "<cmd>Obsidian follow_link<CR>",
+    desc = "Go to Definition",
   }
 }

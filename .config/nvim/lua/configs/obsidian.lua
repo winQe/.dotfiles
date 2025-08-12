@@ -14,6 +14,8 @@ return {
   },
   templates = {
     folder = "Templates",
+    date_format = "%a, %d-%m-%Y",
+    time_format = "%H:%M",
   },
   ui = {
     enabled = false,
