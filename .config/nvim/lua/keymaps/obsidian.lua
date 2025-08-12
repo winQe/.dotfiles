@@ -30,7 +30,7 @@ return {
   },
   {
     "<leader>oo",
-    "<cmd>Obsidian open>",
+    "<cmd>Obsidian open<CR>",
     desc = "Open in Obsidian App"
   },
   {

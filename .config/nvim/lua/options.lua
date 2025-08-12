@@ -66,3 +66,44 @@ vim.api.nvim_create_autocmd({ "BufReadPost", "BufNewFile" }, {
     end
   end,
 })
+
+vim.api.nvim_create_autocmd("BufWritePre", {
+  pattern = "*.md",
+  callback = function()
+    local bufnr = vim.api.nvim_get_current_buf()
+    local lines = vim.api.nvim_buf_get_lines(bufnr, 0, -1, false)
+
+    -- Check for frontmatter
+    if #lines < 2 or lines[1] ~= "---" then return end
+    local front_end
+    for i = 2, #lines do
+      if lines[i] == "---" then
+        front_end = i
+        break
+      end
+    end
+    if not front_end then return end
+
+    -- Prepare new modified_at line
+    local new_time = os.date("%a, %d-%m-%Y %H:%M")
+    local new_line = "modified_at: " .. new_time
+    local modified_found = false
+
+    -- Update existing modified_at
+    for i = 2, front_end - 1 do
+      if lines[i]:match("^modified_at:") then
+        lines[i] = new_line
+        modified_found = true
+        break
+      end
+    end
+
+    -- Add if missing (shouldn't happen with template)
+    if not modified_found then
+      table.insert(lines, front_end, new_line)
+      front_end = front_end + 1 -- Adjust closing --- position
+    end
+
+    vim.api.nvim_buf_set_lines(bufnr, 0, -1, false, lines)
+  end
+})
