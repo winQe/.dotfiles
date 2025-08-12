@@ -12,6 +12,9 @@ return {
   attachments = {
     img_folder = "Attachments",
   },
+  templates = {
+    folder = "Templates",
+  },
   mappings = {
     ["<cr>"] = {
       action = function()
