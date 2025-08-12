@@ -49,6 +49,11 @@ return {
     desc = "Create New Note"
   },
   {
+    "<leader>ot",
+    "<cmd>Obsidian new_from_template<CR>",
+    desc = "Create New Note From Template"
+  },
+  {
     "<leader>os",
     "<cmd>ObsidianSearch<CR>",
     desc = "Search Obsidian"
