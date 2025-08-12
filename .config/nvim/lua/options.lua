@@ -51,3 +51,18 @@ vim.api.nvim_create_autocmd('BufReadPost', {
   pattern = '*',
   command = 'silent! normal! g`"zv'
 })
+
+vim.api.nvim_create_autocmd({ "BufReadPost", "BufNewFile" }, {
+  pattern = "*",
+  callback = function()
+    if vim.bo.binary then return end
+    -- check first 2000 chars for CR to avoid scanning massive files
+    local ok, text = pcall(vim.api.nvim_buf_get_text, 0, 0, 0, 50, 0, {})
+    if not ok then return end
+    local joined = table.concat(text, "\n")
+    if joined:find("\r", 1, true) then
+      vim.bo.fileformat = "unix"
+      vim.cmd([[silent! %s/\r//g]])
+    end
+  end,
+})
