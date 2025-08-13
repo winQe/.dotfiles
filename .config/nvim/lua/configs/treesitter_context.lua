@@ -9,4 +9,21 @@ return {
   separator = nil,
   zindex = 20,
   on_attach = nil,
+  ensure_installed = {
+    "bash",
+    "lua",
+    "c",
+    "cpp",
+    "python",
+    "go",
+    "vim",
+    "swift",
+    "rust",
+    "javascript",
+    "typescript",
+    "markdown",
+    "markdown_inline",
+    "json",
+    "html",
+  }
 }
