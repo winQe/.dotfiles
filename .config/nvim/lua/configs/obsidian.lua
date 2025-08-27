@@ -10,7 +10,7 @@ return {
     },
   },
   attachments = {
-    img_folder = "Attachments",
+    img_folder = "",
   },
   templates = {
     folder = "Templates",
