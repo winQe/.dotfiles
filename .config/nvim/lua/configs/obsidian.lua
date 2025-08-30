@@ -6,7 +6,7 @@ return {
   workspaces = {
     {
       name = "Notes",
-      path = "~/ObsidianVault/",
+      path = "/mnt/c/Users/cod5a/Documents/ObsidianVault",
     },
   },
   attachments = {
@@ -16,6 +16,10 @@ return {
     folder = "Templates",
     date_format = "%a, %d-%m-%Y",
     time_format = "%H:%M",
+  },
+  daily_notes = {
+    folder = "Notes/Dailies",
+    template = "DailiesNvim",
   },
   ui = {
     enabled = false,
