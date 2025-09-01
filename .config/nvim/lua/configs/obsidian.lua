@@ -6,7 +6,7 @@ return {
   workspaces = {
     {
       name = "Notes",
-      path = "/mnt/c/Users/cod5a/Documents/ObsidianVault",
+      path = "~/ObsidianVault/",
     },
   },
   attachments = {
