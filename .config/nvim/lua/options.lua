@@ -16,6 +16,9 @@ vim.api.nvim_set_hl(0, "IlluminatedWordText", { bg = "#333245" })
 vim.api.nvim_set_hl(0, "IlluminatedWordRead", { bg = "#333245" })
 vim.api.nvim_set_hl(0, "IlluminatedWordWrite", { bg = "#333245" })
 vim.api.nvim_set_hl(0, "RenderMarkdownCode", { bg = "#11111b" })
+vim.api.nvim_set_hl(0, "RenderMarkdownH1Bg", { fg = "#89b4fa" })
+vim.api.nvim_set_hl(0, "RenderMarkdownH2Bg", { fg = "#f9e2af" })
+vim.api.nvim_set_hl(0, "RenderMarkdownH3Bg", { fg = "#a6e3a1" })
 
 vim.g.matchparent_timeout = 2
 vim.g.matchparent_insert_timeout = 2
