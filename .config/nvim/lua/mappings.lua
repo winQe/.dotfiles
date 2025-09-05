@@ -11,7 +11,7 @@ map(
   { noremap = true, silent = false, desc = "Generate docs" }
 )
 map({ "n", "v" }, "<leader>te", ":Translate EN<CR>", { silent = true, desc = "Translate to EN" })
-map("n",  "<leader>bd", ":BufOnly<CR>", { desc = "Close all other buffers" })
+map("n", "<leader>bd", ":BufOnly<CR>", { desc = "Close all other buffers" })
 
 -- Smart dd: delete without yank if line is empty/whitespace
 map("n", "dd", function()
@@ -22,3 +22,41 @@ map("n", "dd", function()
     return "dd"
   end
 end, { expr = true, noremap = true, desc = "Smart dd (skip yank on empty lines)" })
+
+local function is_bullet(line)
+  return line:match("^%s*[-*+]%s+") ~= nil or line:match("^%s*[-*+]%s*$") ~= nil
+end
+
+local function toggle_range(bufnr, s, e)
+  local lines = vim.api.nvim_buf_get_lines(bufnr, s - 1, e, false)
+  for i, ln in ipairs(lines) do
+    if is_bullet(ln) then
+      -- remove leading bullet and following space(s)
+      lines[i] = ln:gsub("^%s*[-*+]%s*", "")
+    else
+      local indent = ln:match("^(%s*)") or ""
+      local rest = ln:gsub("^%s*", "")
+      lines[i] = indent .. "- " .. rest
+    end
+  end
+  vim.api.nvim_buf_set_lines(bufnr, s - 1, e, false, lines)
+end
+
+-- Toggle for visual selection
+local function toggle_bullets_visual()
+  local bufnr = vim.api.nvim_get_current_buf()
+  local s = vim.fn.line("'<")
+  local e = vim.fn.line("'>")
+  toggle_range(bufnr, s, e)
+end
+
+-- Toggle for current line
+local function toggle_bullets_line()
+  local bufnr = vim.api.nvim_get_current_buf()
+  local l = vim.fn.line('.')
+  toggle_range(bufnr, l, l)
+end
+
+-- Keymaps (adjust <leader>u if you prefer something else)
+vim.keymap.set('x', '<leader>ul', toggle_bullets_visual, { silent = true, desc = "Toggle bullets" })
+vim.keymap.set('n', '<leader>ul', toggle_bullets_line, { silent = true, desc = "Toggle bullets" })

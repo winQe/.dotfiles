@@ -418,5 +418,25 @@ return {
     },
     opts = require "configs.obsidian",
     keys = require "keymaps.obsidian",
+  },
+  {
+    "bullets-vim/bullets.vim",
+    event = "VeryLazy",
+    init = function()
+      -- which filetypes to enable the plugin for
+      vim.g.bullets_enabled_file_types = { "markdown", "text", "gitcommit", "scratch" }
+
+      -- disable bullets in empty buffers (useful if you don't want it in new unsaved buffers)
+      vim.g.bullets_enable_in_empty_buffers = 0
+
+      -- whether bullets.vim should set its default mappings (1 = yes, 0 = no)
+      -- set to 0 if you prefer to create your own keymaps
+      vim.g.bullets_set_mappings = 1
+    end,
+    -- optional: run after load (only needed if you want to set up custom mappings that require the plugin)
+    config = function()
+      -- example: create a custom normal-mode mapping to toggle bullet insertion (only if you disabled default mappings)
+      -- vim.api.nvim_set_keymap("n", "<leader>tb", ":call bullets#toggle()<CR>", { noremap = true, silent = true })
+    end,
   }
 }
