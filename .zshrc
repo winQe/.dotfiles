@@ -21,9 +21,6 @@ alias nano='nvim'
 set -o vi
 bindkey jk vi-cmd-mode
 
-# Created by `pipx` on 2024-05-17 08:45:12
-export PATH="$PATH:/home/avt/.local/bin"
-
 eval "$(zoxide init --cmd cd zsh)"
 
 function yy() {
@@ -58,3 +55,5 @@ export VISUAL=$EDITOR
 bindkey '^X^E' edit-command-line
 
 export PATH="/opt/homebrew/opt/git/bin:$PATH"
+source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
