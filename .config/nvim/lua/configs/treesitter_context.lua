@@ -24,6 +24,7 @@ return {
     "markdown",
     "markdown_inline",
     "json",
+    "swift",
     "html",
   }
 }
