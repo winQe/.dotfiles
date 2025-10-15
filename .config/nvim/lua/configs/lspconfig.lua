@@ -10,7 +10,7 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagn
 
 local lspconfig = require "lspconfig"
 local util = require "lspconfig/util"
-local servers = { "html", "cssls", "eslint", "pyright", "bufls" }
+local servers = { "html", "cssls", "eslint", "pyright" }
 
 -- lsps with default config
 for _, lsp in ipairs(servers) do
