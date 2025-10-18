@@ -1,5 +1,6 @@
 return {
   bigfile = { enabled = true },
+  bufdelete = { enabled = true },
   notifier = { enabled = true },
   quickfile = { enabled = true },
   words = { enabled = true },

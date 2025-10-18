@@ -11,7 +11,9 @@ map(
   { noremap = true, silent = false, desc = "Generate docs" }
 )
 map({ "n", "v" }, "<leader>te", ":Translate EN<CR>", { silent = true, desc = "Translate to EN" })
-map("n", "<leader>bd", ":BufOnly<CR>", { desc = "Close all other buffers" })
+map("n", "<leader>bd", function() Snacks.bufdelete.other() end, { desc = "Delete other buffers" })
+map("n", "<leader>ba", function() Snacks.bufdelete.all() end, { desc = "Delete all buffers" })
+map("n", "<leader>x", function() Snacks.bufdelete() end, { desc = "Delete buffer" })
 
 -- Smart dd: delete without yank if line is empty/whitespace
 map("n", "dd", function()
