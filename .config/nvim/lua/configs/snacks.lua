@@ -4,6 +4,7 @@ return {
   notifier = { enabled = true },
   quickfile = { enabled = true },
   words = { enabled = true },
+  input = { enabled = true },
   dashboard = {
     enabled = true,
     sections = {

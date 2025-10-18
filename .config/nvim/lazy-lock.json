@@ -1,6 +1,6 @@
 {
   "Comment.nvim": { "branch": "master", "commit": "e30b7f2008e52442154b66f7c519bfd2f1e32acb" },
-  "NvChad": { "branch": "remove-cmp", "commit": "1ced4fd8a67eee9a38452914c639690af637d221" },
+  "NvChad": { "branch": "remove-cmp", "commit": "4f3018dea56ca54b439aa4097dafb13cd385b9cd" },
   "auto-session": { "branch": "main", "commit": "ee320d7a59c1dfe83df7c9d58150d9f194690d53" },
   "avante.nvim": { "branch": "main", "commit": "f092bb3ec0acf87b838e082209b6a7eddcbf5940" },
   "barbecue": { "branch": "main", "commit": "cd7e7da622d68136e13721865b4d919efd6325ed" },

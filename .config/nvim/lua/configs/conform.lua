@@ -1,3 +1,6 @@
+-- Disable auto format on save by default
+vim.g.disable_autoformat = true
+
 local options = {
   formatters_by_ft = {
     lua = { "luaformatter" },

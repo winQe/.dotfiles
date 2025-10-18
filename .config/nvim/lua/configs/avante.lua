@@ -5,7 +5,7 @@ return {
   provider = "claude",
   providers = {
     claude = {
-      endpoint = "sec.ret.com",
+      endpoint = "https://litellm.ml.goodnotesbeta.com",
       model = "claude-sonnet-4-5",
       timeout = 30000, -- Timeout in milliseconds
       extra_request_body = {

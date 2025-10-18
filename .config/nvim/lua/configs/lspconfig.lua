@@ -29,12 +29,12 @@ lspconfig.ts_ls.setup {
     typescript = {
       inlayHints = {
         includeInlayEnumMemberValueHints = true,
-        includeInlayFunctionLikeReturnTypeHints = true,
+        includeInlayFunctionLikeReturnTypeHints = false,
         includeInlayFunctionParameterTypeHints = true,
         includeInlayParameterNameHints = "all",
-        includeInlayParameterNameHintsWhenArgumentMatchesName = true,
-        includeInlayPropertyDeclarationTypeHints = true,
-        includeInlayVariableTypeHints = true,
+        includeInlayParameterNameHintsWhenArgumentMatchesName = false,
+        includeInlayPropertyDeclarationTypeHints = false,
+        includeInlayVariableTypeHints = false,
       },
     },
   },
