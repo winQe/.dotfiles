@@ -14,7 +14,7 @@ map({ "n", "v" }, "<leader>te", ":Translate EN<CR>", { silent = true, desc = "Tr
 map("n", "<leader>bn", "<cmd>enew<CR>", { desc = "New buffer" })
 map("n", "<leader>bd", function() Snacks.bufdelete.other() end, { desc = "Delete other buffers" })
 map("n", "<leader>ba", function() Snacks.bufdelete.all() end, { desc = "Delete all buffers" })
-map("n", "<leader>x", function() Snacks.bufdelete() end, { desc = "Delete buffer" })
+map("n", "<leader>bx", function() Snacks.bufdelete() end, { desc = "Delete buffer" })
 
 -- Smart dd: delete without yank if line is empty/whitespace
 map("n", "dd", function()
