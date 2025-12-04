@@ -13,6 +13,8 @@ local options = {
     html = { "prettierd", "prettier" },
     css = { "prettierd", "prettier" },
     markdown = { "prettierd", "prettier" },
+    terraform = { "terraform_fmt" },
+    tf = { "terraform_fmt" },
   },
 
   format_on_save = function(bufnr)

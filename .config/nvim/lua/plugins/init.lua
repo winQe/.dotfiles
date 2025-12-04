@@ -24,6 +24,7 @@ return {
         "pyright",
         "rust-analyzer",
         "gopls",
+        "terraform-ls",
       },
     },
   },
