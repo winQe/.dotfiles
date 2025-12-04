@@ -63,3 +63,16 @@ end
 -- Keymaps (adjust <leader>u if you prefer something else)
 vim.keymap.set('x', '<leader>ul', toggle_bullets_visual, { silent = true, desc = "Toggle bullets" })
 vim.keymap.set('n', '<leader>ul', toggle_bullets_line, { silent = true, desc = "Toggle bullets" })
+
+-- Copy file path/directory
+map("n", "<leader>yp", function()
+  local path = vim.fn.expand('%:p')
+  vim.fn.setreg('+', path)
+  vim.notify("Copied: " .. path)
+end, { desc = "Copy file path" })
+
+map("n", "<leader>yd", function()
+  local dir = vim.fn.expand('%:p:h')
+  vim.fn.setreg('+', dir)
+  vim.notify("Copied: " .. dir)
+end, { desc = "Copy file directory" })
