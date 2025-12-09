@@ -19,7 +19,7 @@ require("lazy").setup({
   {
     "winQe/NvChad",
     lazy = false,
-    branch = "remove-cmp",
+    branch = "remove-tel",
     import = "nvchad.plugins",
     config = function()
       require "options"
