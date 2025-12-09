@@ -1,4 +1,7 @@
 return {
+  -- Disable telescope (using snacks.picker instead)
+  { "nvim-telescope/telescope.nvim", enabled = false },
+
   -- LSP and Formatting Plugins
   {
     "neovim/nvim-lspconfig",
@@ -358,6 +361,30 @@ return {
         desc = "Prev Reference",
         mode = { "n", "t" },
       },
+      -- Picker keymaps (replacing telescope)
+      { "<leader>ff", function() Snacks.picker.files() end, desc = "Find Files" },
+      { "<leader>fa", function() Snacks.picker.files({ hidden = true, ignored = true }) end, desc = "Find All Files" },
+      { "<leader>fw", function() Snacks.picker.grep() end, desc = "Live Grep" },
+      { "<leader>fb", function() Snacks.picker.buffers() end, desc = "Find Buffers" },
+      { "<leader>fh", function() Snacks.picker.help() end, desc = "Help Pages" },
+      { "<leader>fo", function() Snacks.picker.recent() end, desc = "Recent Files" },
+      { "<leader>fz", function() Snacks.picker.lines() end, desc = "Find in Current Buffer" },
+      { "<leader>ma", function() Snacks.picker.marks() end, desc = "Find Marks" },
+      { "<leader>fk", function() Snacks.picker.keymaps() end, desc = "Find Keymaps" },
+      { "<leader>fd", function() Snacks.picker.diagnostics() end, desc = "Diagnostics" },
+      { "<leader>fr", function() Snacks.picker.resume() end, desc = "Resume Last Picker" },
+      { "<leader>fc", function() Snacks.picker.commands() end, desc = "Commands" },
+      { "<leader>f/", function() Snacks.picker.grep_buffers() end, desc = "Grep Open Buffers" },
+      { "<leader>fs", function() Snacks.picker.lsp_symbols() end, desc = "LSP Symbols" },
+      { "<leader>fS", function() Snacks.picker.lsp_workspace_symbols() end, desc = "LSP Workspace Symbols" },
+      -- Git pickers
+      { "<leader>cm", function() Snacks.picker.git_log() end, desc = "Git Commits" },
+      { "<leader>gt", function() Snacks.picker.git_status() end, desc = "Git Status" },
+      { "<leader>gd", function() Snacks.picker.git_diff() end, desc = "Git Diff" },
+      { "<leader>gs", function() Snacks.picker.git_stash() end, desc = "Git Stash" },
+      { "<leader>gc", function() Snacks.picker.git_log_file() end, desc = "Git Log (current file)" },
+      -- Word under cursor
+      { "<leader>sw", function() Snacks.picker.grep_word() end, desc = "Search Word Under Cursor", mode = { "n", "x" } },
     },
   },
   {

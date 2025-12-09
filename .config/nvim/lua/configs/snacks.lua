@@ -5,6 +5,26 @@ return {
   quickfile = { enabled = true },
   words = { enabled = true },
   input = { enabled = true },
+  picker = {
+    enabled = true,
+    sources = {
+      files = {
+        frecency = true,
+        hidden = true,
+        exclude = {
+          "CHANGELOGS",
+          "*.png",
+          "*.jpg",
+          "*.jpeg",
+          "*.gif",
+          "*.bmp",
+          "*.ico",
+          "*.webp",
+          "*.svg",
+        },
+      },
+    },
+  },
   dashboard = {
     enabled = true,
     sections = {
