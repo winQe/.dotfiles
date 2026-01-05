@@ -101,27 +101,12 @@ return {
     end,
   },
   {
-    'MeanderingProgrammer/render-markdown.nvim',
-    ft = "markdown",
-    dependencies = { 'nvim-treesitter/nvim-treesitter', 'echasnovski/mini.nvim' },
-    ---@module 'render-markdown'
-    ---@type render.md.UserConfig
-    opts = {},
-  },
-  {
     "HiPhish/rainbow-delimiters.nvim",
     event = { "BufReadPre", "BufNewFile" },
     dependencies = { "nvim-treesitter/nvim-treesitter" },
     config = function()
       require "configs.rainbow"
     end,
-  },
-  {
-    "lukas-reineke/indent-blankline.nvim",
-    main = "ibl",
-    ---@module "ibl"
-    ---@type ibl.config
-    opts = {},
   },
   {
     "rachartier/tiny-inline-diagnostic.nvim",
@@ -513,8 +498,8 @@ return {
         },
       },
       {
-        -- Make sure to set this up properly if you have lazy=true
         'MeanderingProgrammer/render-markdown.nvim',
+        dependencies = { 'nvim-treesitter/nvim-treesitter', 'echasnovski/mini.nvim' },
         opts = {
           file_types = { "markdown", "Avante" },
         },
