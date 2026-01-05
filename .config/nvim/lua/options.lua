@@ -8,7 +8,9 @@ o.scrolloff = 5         -- minimum number of lines to keep above and below the c
 o.conceallevel = 1
 o.termguicolors = true
 
--- Set colors for extensions
+-- Custom highlight overrides
+vim.api.nvim_set_hl(0, "Visual", { bg = "#dd7878", fg = "black" })
+vim.api.nvim_set_hl(0, "Substitute", { bg = "#f38ba8", fg = "#1e1e2e" })
 vim.api.nvim_set_hl(0, "NoiceCmdlinePopupBorder", { fg = "#89dceb" })
 vim.api.nvim_set_hl(0, "FlashLabel", { bg = "#eba0ac", fg = "#11111b" })
 vim.api.nvim_set_hl(0, "CurSearch", { bg = "#f02993", fg = "#11111b" })
