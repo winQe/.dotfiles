@@ -248,7 +248,6 @@ return {
   },
   {
     "mistricky/codesnap.nvim",
-    build = "make",
     keys = {
       { "<leader>pc", "<cmd>CodeSnap<cr>",     mode = "x", desc = "Save code snapshot to clipboard" },
       { "<leader>ps", "<cmd>CodeSnapSave<cr>", mode = "x", desc = "Save code snapshot to ~/Pictures" },
@@ -256,9 +255,22 @@ return {
     cmd = { "CodeSnapHighlight", "CodeSnap" },
     opts = {
       save_path = "~/Pictures",
-      has_breadcrumbs = true,
-      bg_theme = "grape",
-      has_line_number = true,
+      show_line_number = true,
+      snapshot_config = {
+        code_config = {
+          breadcrumbs = {
+            enable = true,
+          },
+        },
+        background = {
+          start = { x = 0, y = 0 },
+          ["end"] = { x = "max", y = "max" },
+          stops = {
+            { position = 0, color = "#cba6f7" },
+            { position = 1, color = "#f5c2e7" },
+          },
+        },
+      },
     },
   },
   {
