@@ -390,6 +390,17 @@ return {
     branch = "v2",
   },
 
+  -- Cursor Animation
+  {
+    "sphamba/smear-cursor.nvim",
+    event = "VeryLazy",
+    opts = {
+      stiffness = 0.8,
+      trailing_stiffness = 0.7,
+      damping = 0.95,
+      time_interval = 17,
+    },
+  },
   -- UI and Notifications
   {
     "folke/noice.nvim",
@@ -471,51 +482,4 @@ return {
     end,
   },
 
-  {
-    "yetone/avante.nvim",
-    -- if you want to build from source then do `make BUILD_FROM_SOURCE=true`
-    -- ⚠️ must add this setting! ! !
-    build = vim.fn.has("win32") ~= 0
-        and "powershell -ExecutionPolicy Bypass -File Build.ps1 -BuildFromSource false"
-        or "make",
-    event = "VeryLazy",
-    version = false, -- Never set this value to "*"! Never!
-    ---@module 'avante'
-    ---@type avante.Config
-    opts = require "configs.avante",
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-      "MunifTanjim/nui.nvim",
-      --- The below dependencies are optional,
-      "nvim-telescope/telescope.nvim", -- for file_selector provider telescope
-      "stevearc/dressing.nvim",        -- for input provider dressing
-      "folke/snacks.nvim",             -- for input provider snacks
-      "nvim-tree/nvim-web-devicons",   -- or echasnovski/mini.icons
-      {
-        -- support for image pasting
-        "HakonHarnes/img-clip.nvim",
-        event = "VeryLazy",
-        opts = {
-          -- recommended settings
-          default = {
-            embed_image_as_base64 = false,
-            prompt_for_file_name = false,
-            drag_and_drop = {
-              insert_mode = true,
-            },
-            -- required for Windows users
-            use_absolute_path = true,
-          },
-        },
-      },
-      {
-        'MeanderingProgrammer/render-markdown.nvim',
-        dependencies = { 'nvim-treesitter/nvim-treesitter', 'echasnovski/mini.nvim' },
-        opts = {
-          file_types = { "markdown", "Avante" },
-        },
-        ft = { "markdown", "Avante" },
-      },
-    },
-  },
 }
