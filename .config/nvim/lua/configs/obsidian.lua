@@ -18,7 +18,7 @@ return {
     time_format = "%H:%M",
   },
   daily_notes = {
-    folder = "PeriodicNotes/Dailies",
+    folder = "Periodic Notes/Dailies",
     template = "DailiesNvim",
   },
   ui = {
