@@ -2,11 +2,15 @@
 
 # GoodNotes-5 worktrees go to ~/gn-worktrees/<branch>
 [projects."github.com/GoodNotes/GoodNotes-5"]
-worktree-path = "~/gn-worktrees/{{ branch | sanitize }}"
+worktree-path = "~/gn-worktrees/{{ branch | replace(pat='adin/', with='') | sanitize }}"
 post-start.submodules = "git submodule update --recursive --init --progress -f --depth 1"
 post-start.deps = "yarn && yarn workspaces foreach -Apt run postinstall"
 post-start.build = "yarn --cwd CrossplatformWeb build:swift:debug && yarn --cwd CrossplatformWeb build:debug"
-post-start.tmux = '[ -n "$TMUX" ] && tmux new-window -n {{ branch | sanitize }} -c {{ worktree_path }} nvim \; split-window -v -p 50 -c {{ worktree_path }} \; split-window -h -p 50 -c {{ worktree_path }} claude \; select-pane -t 0'
+post-start.tmux = '[ -n "$TMUX" ] && tmux new-window -n {{ branch | replace(pat="adin/", with="") | sanitize }} -c {{ worktree_path }} nvim \; split-window -v -p 25 -c {{ worktree_path }} \; split-window -h -p 50 -c {{ worktree_path }} claude \; select-pane -t 0'
+
+# Only commit staged files, don't auto-stage
+[commit]
+stage = "none"
 
 # LLM commit message generation via Claude
 [commit.generation]
@@ -19,7 +23,7 @@ Write a commit message for the staged changes below.
 - Use conventional commits format: type: description
 - Valid types: fix, feat, chore, refactor, perf, test, docs, ci
 - Subject line under 50 chars, lowercase, imperative mood
-- For material changes, add a blank line then a body paragraph
+- Subject line ONLY, no body paragraph
 - Output only the commit message, no quotes or code blocks
 </format>
 
@@ -47,7 +51,7 @@ Combine these commits into a single commit message.
 - Use conventional commits format: type: description
 - Valid types: fix, feat, chore, refactor, perf, test, docs, ci
 - Subject line under 50 chars, lowercase, imperative mood
-- For material changes, add a blank line then a body paragraph
+- Subject line ONLY, no body paragraph
 - Output only the commit message, no quotes or code blocks
 </format>
 
