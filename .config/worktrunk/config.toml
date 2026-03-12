@@ -1,0 +1,66 @@
+# Worktrunk User Configuration
+
+# GoodNotes-5 worktrees go to ~/gn-worktrees/<branch>
+[projects."github.com/GoodNotes/GoodNotes-5"]
+worktree-path = "~/gn-worktrees/{{ branch | sanitize }}"
+post-start.submodules = "git submodule update --recursive --init --progress -f --depth 1"
+post-start.deps = "yarn && yarn workspaces foreach -Apt run postinstall"
+post-start.build = "yarn --cwd CrossplatformWeb build:swift:debug && yarn --cwd CrossplatformWeb build:debug"
+post-start.tmux = '[ -n "$TMUX" ] && tmux new-window -n {{ branch | sanitize }} -c {{ worktree_path }} nvim \; split-window -v -p 50 -c {{ worktree_path }} \; split-window -h -p 50 -c {{ worktree_path }} claude \; select-pane -t 0'
+
+# LLM commit message generation via Claude
+[commit.generation]
+command = "CLAUDECODE= MAX_THINKING_TOKENS=0 claude -p --model=haiku --tools='' --disable-slash-commands --setting-sources='' --system-prompt=''"
+
+template = """
+Write a commit message for the staged changes below.
+
+<format>
+- Use conventional commits format: type: description
+- Valid types: fix, feat, chore, refactor, perf, test, docs, ci
+- Subject line under 50 chars, lowercase, imperative mood
+- For material changes, add a blank line then a body paragraph
+- Output only the commit message, no quotes or code blocks
+</format>
+
+<diffstat>
+{{ git_diff_stat }}
+</diffstat>
+
+<diff>
+{{ git_diff }}
+</diff>
+
+<context>
+Branch: {{ branch }}
+{% if recent_commits %}<recent_commits>
+{% for commit in recent_commits %}- {{ commit }}
+{% endfor %}</recent_commits>{% endif %}
+</context>
+
+"""
+
+squash-template = """
+Combine these commits into a single commit message.
+
+<format>
+- Use conventional commits format: type: description
+- Valid types: fix, feat, chore, refactor, perf, test, docs, ci
+- Subject line under 50 chars, lowercase, imperative mood
+- For material changes, add a blank line then a body paragraph
+- Output only the commit message, no quotes or code blocks
+</format>
+
+<commits branch="{{ branch }}" target="{{ target_branch }}">
+{% for commit in commits %}- {{ commit }}
+{% endfor %}</commits>
+
+<diffstat>
+{{ git_diff_stat }}
+</diffstat>
+
+<diff>
+{{ git_diff }}
+</diff>
+
+"""
