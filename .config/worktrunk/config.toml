@@ -2,11 +2,11 @@
 
 # GoodNotes-5 worktrees go to ~/gn-worktrees/<branch>
 [projects."github.com/GoodNotes/GoodNotes-5"]
-worktree-path = "~/gn-worktrees/{{ branch | replace(pat='adin/', with='') | sanitize }}"
+worktree-path = "~/gn-worktrees/{{ branch | replace('adin/', '') | sanitize }}"
 post-start.submodules = "git submodule update --recursive --init --progress -f --depth 1"
 post-start.deps = "yarn && yarn workspaces foreach -Apt run postinstall"
 post-start.build = "yarn --cwd CrossplatformWeb build:swift:debug && yarn --cwd CrossplatformWeb build:debug"
-post-start.tmux = '[ -n "$TMUX" ] && tmux new-window -n {{ branch | replace(pat="adin/", with="") | sanitize }} -c {{ worktree_path }} nvim \; split-window -v -p 25 -c {{ worktree_path }} \; split-window -h -p 50 -c {{ worktree_path }} claude \; select-pane -t 0'
+post-start.tmux = '[ -n "$TMUX" ] && tmux new-window -n {{ branch | replace("adin/", "") | sanitize }} -c {{ worktree_path }} nvim \; split-window -v -p 25 -c {{ worktree_path }} \; split-window -h -p 50 -c {{ worktree_path }} claude \; select-pane -t 0'
 
 # Only commit staged files, don't auto-stage
 [commit]
