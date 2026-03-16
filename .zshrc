@@ -48,6 +48,28 @@ source "$HOME/.cargo/env"
 . "$HOME/.atuin/bin/env"
 eval "$(atuin init zsh)"
 
+# Git aliases
+alias gs="git status"
+alias ga="git add"
+alias gaa="git add --all"
+alias gc="git commit"
+alias gcm="git commit -m"
+alias gca="git commit --amend"
+alias gp="git push"
+alias gpf="git push --force-with-lease"
+alias gpl="git pull"
+alias gco="git checkout"
+alias gcb="git checkout -b"
+alias gsw="git switch"
+alias gb="git branch"
+alias gd="git diff"
+alias gds="git diff --staged"
+alias gl="git log --oneline --graph"
+alias gst="git stash"
+alias gstp="git stash pop"
+alias gcp="git cherry-pick"
+alias grb="git rebase"
+
 export GIT_EDITOR=nvim
 export EDITOR=nvim
 export VISUAL=$EDITOR
