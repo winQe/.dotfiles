@@ -78,5 +78,10 @@ return {
     "gd",
     "<cmd>Obsidian follow_link<CR>",
     desc = "Go to Definition",
+  },
+  {
+    "<leader>ow",
+    "<cmd>Obsidian weekly<CR>",
+    desc = "Open/Create Weekly Note",
   }
 }

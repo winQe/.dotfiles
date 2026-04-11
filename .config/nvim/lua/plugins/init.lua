@@ -1,6 +1,49 @@
 return {
-  -- Disable telescope (using snacks.picker instead)
-  { "nvim-telescope/telescope.nvim", enabled = false },
+  -- Only load telescope for NvChad theme picker
+  {
+    "nvim-telescope/telescope.nvim",
+    cmd = "Telescope",
+    keys = {
+      { "<leader>th", "<cmd>Telescope themes<cr>", desc = "Theme Picker" },
+    },
+  },
+
+  -- Catppuccin with integrations for all plugins
+  {
+    "catppuccin/nvim",
+    name = "catppuccin",
+    priority = 1000,
+    opts = {
+      integrations = {
+        blink_cmp = true,
+        diffview = true,
+        gitsigns = true,
+        indent_blankline = { enabled = true },
+        mason = true,
+        neogit = true,
+        noice = true,
+        rainbow_delimiters = true,
+        treesitter_context = true,
+        treesitter = true,
+        native_lsp = {
+          enabled = true,
+          underlines = {
+            errors = { "undercurl" },
+            hints = { "undercurl" },
+            warnings = { "undercurl" },
+            information = { "undercurl" },
+          },
+        },
+        barbecue = {
+          dim_dirname = true,
+          bold_basename = true,
+          dim_context = false,
+          alt_background = false,
+        },
+        which_key = true,
+      },
+    },
+  },
 
   -- LSP and Formatting Plugins
   {
@@ -129,6 +172,26 @@ return {
   {
     "sindrets/diffview.nvim",
     event = "VeryLazy",
+  },
+  {
+    "NeogitOrg/neogit",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "sindrets/diffview.nvim",
+      "folke/snacks.nvim",
+    },
+    cmd = "Neogit",
+    keys = {
+      { "<leader>gn", "<cmd>Neogit<cr>", desc = "Neogit" },
+      { "<leader>gC", "<cmd>Neogit commit<cr>", desc = "Neogit Commit" },
+    },
+    opts = {
+      integrations = {
+        diffview = true,
+        snacks = true,
+      },
+      graph_style = "unicode",
+    },
   },
 
   -- Productivity Enhancements
@@ -391,16 +454,17 @@ return {
   },
 
   -- Cursor Animation
-  {
-    "sphamba/smear-cursor.nvim",
-    event = "VeryLazy",
-    opts = {
-      stiffness = 0.8,
-      trailing_stiffness = 0.7,
-      damping = 0.95,
-      time_interval = 17,
-    },
-  },
+  -- {
+  --   "sphamba/smear-cursor.nvim",
+  --   disable = true,
+  --   event = "VeryLazy",
+  --   opts = {
+  --     stiffness = 0.8,
+  --     trailing_stiffness = 0.7,
+  --     damping = 0.95,
+  --     time_interval = 17,
+  --   },
+  -- },
   -- UI and Notifications
   {
     "folke/noice.nvim",
@@ -460,6 +524,40 @@ return {
     },
     opts = require "configs.obsidian",
     keys = require "keymaps.obsidian",
+    config = function(_, opts)
+      require("obsidian").setup(opts)
+
+      -- Wrap the :Obsidian command to support "weekly" subcommand
+      local orig = vim.api.nvim_get_commands({})["Obsidian"]
+      if orig then
+        local orig_fn = orig.callback
+        vim.api.nvim_create_user_command("Obsidian", function(cmd_opts)
+          if cmd_opts.args == "weekly" then
+            require("configs.obsidian_weekly").open()
+          else
+            orig_fn(cmd_opts)
+          end
+        end, {
+          nargs = orig.nargs,
+          complete = function(arg_lead, cmd_line, cursor_pos)
+            local completions = { "weekly" }
+            -- Get original completions
+            if orig.complete_arg then
+              local orig_completions = orig.complete_arg(arg_lead, cmd_line, cursor_pos)
+              if orig_completions then
+                vim.list_extend(completions, orig_completions)
+              end
+            end
+            return vim.tbl_filter(function(c)
+              return c:find(arg_lead, 1, true) == 1
+            end, completions)
+          end,
+          bang = orig.bang,
+          desc = orig.definition,
+          force = true,
+        })
+      end
+    end,
   },
   {
     "bullets-vim/bullets.vim",
@@ -480,6 +578,13 @@ return {
       -- example: create a custom normal-mode mapping to toggle bullet insertion (only if you disabled default mappings)
       -- vim.api.nvim_set_keymap("n", "<leader>tb", ":call bullets#toggle()<CR>", { noremap = true, silent = true })
     end,
+  },
+
+  {
+    "MeanderingProgrammer/render-markdown.nvim",
+    dependencies = { "nvim-treesitter/nvim-treesitter", "echasnovski/mini.nvim" },
+    ft = "markdown",
+    opts = {},
   },
 
 }
