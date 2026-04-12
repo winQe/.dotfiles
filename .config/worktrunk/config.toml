@@ -3,6 +3,7 @@
 # GoodNotes-5 worktrees go to ~/gn-worktrees/<branch>
 [projects."github.com/GoodNotes/GoodNotes-5"]
 worktree-path = "~/gn-worktrees/{{ branch | replace('adin/', '') | sanitize }}"
+post-start.copy = "wt step copy-ignored"
 post-start.submodules = "git submodule update --recursive --init --progress -f --depth 1"
 post-start.deps = "yarn && yarn workspaces foreach -Apt run postinstall"
 post-start.build = "yarn --cwd CrossplatformWeb build:swift:debug && yarn --cwd CrossplatformWeb build:debug"
@@ -20,11 +21,38 @@ template = """
 Write a commit message for the staged changes below.
 
 <format>
-- Use conventional commits format: type: description
-- Valid types: fix, feat, chore, refactor, perf, test, docs, ci
-- Subject line under 50 chars, lowercase, imperative mood
-- Subject line ONLY, no body paragraph
-- Output only the commit message, no quotes or code blocks
+You are a senior developer working in a company that maintains a digital note taking application.
+Your role is focused on building the web and android experiences.
+Analyze these git staged changes and write a single line conventional commit message following this developer's style:
+
+<type>: <description>
+
+Style patterns from previous commits:
+- feat: implement new feature
+- fix: fix lint errors on App
+- test: update tests for navigating routes
+- track: add tracking events for Open in App
+- refactor: reindent code
+- chore: bump node.js
+- feat: update localization for pasting elements
+
+Guidelines:
+- types are limited to fix, feat, chore, test, refactor, track
+- Use lowercase after the colon
+- Be concise but descriptive
+- Focus on what the change does, not how
+- Use present tense (add, fix, update, etc.)
+- Keep under 72 characters when possible
+
+Staged changes:
+```
+{staged_diff}
+```
+
+Current branch: {branch_name}
+Use the branch name context to better understand what feature/fix is being worked on.
+
+Generate just the commit message, nothing else.
 </format>
 
 <diffstat>
