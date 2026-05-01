@@ -7,6 +7,7 @@ o.relativenumber = true -- default is relative line number
 o.scrolloff = 5         -- minimum number of lines to keep above and below the cursor
 o.conceallevel = 1
 o.termguicolors = true
+o.swapfile = false
 
 -- Custom highlight overrides
 vim.api.nvim_set_hl(0, "NoiceCmdlinePopupBorder", { fg = "#89dceb" })
