@@ -5,6 +5,16 @@ return {
   quickfile = { enabled = true },
   words = { enabled = true },
   input = { enabled = true },
+  lazygit = {
+    config = {
+      os = {
+        edit = 'nvim --server "$NVIM" --remote-send "<C-\\><C-N>:close<CR>:e {{filename}}<CR>"',
+        editAtLine = 'nvim --server "$NVIM" --remote-send "<C-\\><C-N>:close<CR>:e +{{line}} {{filename}}<CR>"',
+        editAtLineAndWait = 'nvim --server "$NVIM" --remote-tab-wait +{{line}} {{filename}}',
+        openDirInEditor = 'nvim --server "$NVIM" --remote-send "<C-\\><C-N>:close<CR>:e {{dir}}<CR>"',
+      },
+    },
+  },
   picker = {
     enabled = true,
     sources = {
