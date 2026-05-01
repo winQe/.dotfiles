@@ -1,7 +1,7 @@
 git:
   paging:
     colorArg: always
-    pager: delta --paging=never
+    pager: delta --paging=never --line-numbers --hunk-header-decoration-style=omit --file-decoration-style=omit --syntax-theme="Catppuccin Mocha"
 gui:
   theme:
     activeBorderColor:
