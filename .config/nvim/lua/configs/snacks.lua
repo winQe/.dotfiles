@@ -9,10 +9,10 @@ return {
   lazygit = {
     config = {
       os = {
-        edit = 'nvim --server "$NVIM" --remote-send "<C-\\><C-N>:close<CR>:e {{filename}}<CR>"',
-        editAtLine = 'nvim --server "$NVIM" --remote-send "<C-\\><C-N>:close<CR>:e +{{line}} {{filename}}<CR>"',
+        edit = 'nvim --server "$NVIM" --remote-send "<C-\\><C-N>:close<CR>:exe \'edit \' . fnameescape(\'{{filename}}\')<CR>"',
+        editAtLine = 'nvim --server "$NVIM" --remote-send "<C-\\><C-N>:close<CR>:exe \'edit +{{line}} \' . fnameescape(\'{{filename}}\')<CR>"',
         editAtLineAndWait = 'nvim --server "$NVIM" --remote-tab-wait +{{line}} {{filename}}',
-        openDirInEditor = 'nvim --server "$NVIM" --remote-send "<C-\\><C-N>:close<CR>:e {{dir}}<CR>"',
+        openDirInEditor = 'nvim --server "$NVIM" --remote-send "<C-\\><C-N>:close<CR>:exe \'edit \' . fnameescape(\'{{dir}}\')<CR>"',
       },
     },
   },
