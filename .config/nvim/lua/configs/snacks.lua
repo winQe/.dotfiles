@@ -5,6 +5,7 @@ return {
   quickfile = { enabled = true },
   words = { enabled = true },
   input = { enabled = true },
+  gh = {},
   lazygit = {
     config = {
       os = {

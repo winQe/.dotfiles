@@ -443,6 +443,11 @@ return {
       { "<leader>gd", function() Snacks.picker.git_diff() end, desc = "Git Diff" },
       { "<leader>gs", function() Snacks.picker.git_stash() end, desc = "Git Stash" },
       { "<leader>gc", function() Snacks.picker.git_log_file() end, desc = "Git Log (current file)" },
+      -- GitHub (Snacks.gh)
+      { "<leader>gi", function() Snacks.picker.gh_issue() end, desc = "GitHub Issues (open)" },
+      { "<leader>gI", function() Snacks.picker.gh_issue({ state = "all" }) end, desc = "GitHub Issues (all)" },
+      { "<leader>gp", function() Snacks.picker.gh_pr({ author = "@me" }) end, desc = "GitHub PRs (mine)" },
+      { "<leader>gP", function() Snacks.picker.gh_pr() end, desc = "GitHub PRs (all open)" },
       -- Word under cursor
       { "<leader>sw", function() Snacks.picker.grep_word() end, desc = "Search Word Under Cursor", mode = { "n", "x" } },
     },
