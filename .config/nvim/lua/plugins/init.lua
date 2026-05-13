@@ -532,36 +532,12 @@ return {
     config = function(_, opts)
       require("obsidian").setup(opts)
 
-      -- Wrap the :Obsidian command to support "weekly" subcommand
-      local orig = vim.api.nvim_get_commands({})["Obsidian"]
-      if orig then
-        local orig_fn = orig.callback
-        vim.api.nvim_create_user_command("Obsidian", function(cmd_opts)
-          if cmd_opts.args == "weekly" then
-            require("configs.obsidian_weekly").open()
-          else
-            orig_fn(cmd_opts)
-          end
-        end, {
-          nargs = orig.nargs,
-          complete = function(arg_lead, cmd_line, cursor_pos)
-            local completions = { "weekly" }
-            -- Get original completions
-            if orig.complete_arg then
-              local orig_completions = orig.complete_arg(arg_lead, cmd_line, cursor_pos)
-              if orig_completions then
-                vim.list_extend(completions, orig_completions)
-              end
-            end
-            return vim.tbl_filter(function(c)
-              return c:find(arg_lead, 1, true) == 1
-            end, completions)
-          end,
-          bang = orig.bang,
-          desc = orig.definition,
-          force = true,
-        })
-      end
+      require("obsidian.commands").register("weekly", {
+        nargs = 0,
+        func = function()
+          require("configs.obsidian_weekly").open()
+        end,
+      })
     end,
   },
   {
