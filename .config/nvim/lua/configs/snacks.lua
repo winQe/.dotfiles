@@ -1,3 +1,9 @@
+local server = vim.v.servername or ""
+local handoff = vim.fn.stdpath("cache") .. "/lazygit-handoff-" .. vim.fn.sha256(server):sub(1, 8)
+_G.LazygitHandoffPath = handoff
+local handoff_quoted = vim.fn.shellescape(handoff)
+local notify = 'nvim --server "$NVIM" --remote-expr \'v:lua.LazygitEditFromHandoff()\''
+
 return {
   bigfile = { enabled = true },
   bufdelete = { enabled = true },
@@ -9,10 +15,9 @@ return {
   lazygit = {
     config = {
       os = {
-        edit = 'nvim --server "$NVIM" --remote-send "<C-\\><C-N>:close<CR>:exe \'edit \' . fnameescape(\'{{filename}}\')<CR>"',
-        editAtLine = 'nvim --server "$NVIM" --remote-send "<C-\\><C-N>:close<CR>:exe \'edit +{{line}} \' . fnameescape(\'{{filename}}\')<CR>"',
+        edit = "printf '%s' {{filename}} > " .. handoff_quoted .. " && " .. notify,
+        editAtLine = "printf '+%s\\n%s' {{line}} {{filename}} > " .. handoff_quoted .. " && " .. notify,
         editAtLineAndWait = 'nvim --server "$NVIM" --remote-tab-wait +{{line}} {{filename}}',
-        openDirInEditor = 'nvim --server "$NVIM" --remote-send "<C-\\><C-N>:close<CR>:exe \'edit \' . fnameescape(\'{{dir}}\')<CR>"',
       },
     },
   },
