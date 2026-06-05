@@ -38,3 +38,36 @@ require "nvchad.autocmds"
 vim.schedule(function()
   require "mappings"
 end)
+
+function _G.LazygitEditFromHandoff()
+  local path = _G.LazygitHandoffPath
+  if not path then return "" end
+  local fh = io.open(path, "r")
+  if not fh then return "" end
+  local raw = fh:read("*a")
+  fh:close()
+  pcall(os.remove, path)
+
+  if raw == "" then return "" end
+
+  local filename, line
+  local line_part, name_part = raw:match("^%+(%d+)\n(.*)$")
+  if line_part and name_part ~= "" and not name_part:find("\n", 1, true) then
+    line = line_part
+    filename = name_part
+  elseif not raw:find("\n", 1, true) then
+    filename = raw
+  else
+    return ""
+  end
+
+  pcall(vim.cmd, "close")
+  vim.schedule(function()
+    if line then
+      vim.cmd(string.format("edit +%s %s", line, vim.fn.fnameescape(filename)))
+    else
+      vim.cmd("edit " .. vim.fn.fnameescape(filename))
+    end
+  end)
+  return ""
+end
