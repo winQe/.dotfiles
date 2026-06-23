@@ -22,7 +22,7 @@ return {
     template = "DailiesNvim",
   },
   ui = {
-    enabled = false,
+    enable = false,
   },
   legacy_commands = false,
   -- Optional, customize how note IDs are generated given an optional title.
