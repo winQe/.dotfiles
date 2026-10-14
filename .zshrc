@@ -18,6 +18,13 @@ elif [ -x /home/linuxbrew/.linuxbrew/bin/brew ]; then
   eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 fi
 
+export PATH="$HOME/.local/bin:$PATH"
+
+# CLT 26.6 defaults to the MacOSX27 SDK, which its own ld can't parse. Pin the 26 SDK until CLT catches up.
+if [ -d /Library/Developer/CommandLineTools/SDKs/MacOSX26.sdk ]; then
+  export SDKROOT=/Library/Developer/CommandLineTools/SDKs/MacOSX26.sdk
+fi
+
 # Temporary to force me to learn nvim
 alias nano='nvim'
 
