@@ -1,6 +1,5 @@
 return {
   completion = {
-    blink = true,
     min_chars = 0,
   },
   workspaces = {
@@ -10,7 +9,7 @@ return {
     },
   },
   attachments = {
-    img_folder = "",
+    folder = "",
   },
   templates = {
     folder = "Templates",
@@ -23,6 +22,9 @@ return {
   },
   ui = {
     enable = false,
+  },
+  checkbox = {
+    order = { " ", "x" },
   },
   legacy_commands = false,
   -- Optional, customize how note IDs are generated given an optional title.
