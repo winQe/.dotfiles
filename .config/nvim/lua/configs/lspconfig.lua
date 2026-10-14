@@ -18,6 +18,11 @@ for _, server in ipairs(servers) do
   vim.lsp.config(server, {})
 end
 
+-- sourcekit defaults to also attaching to c/cpp/objc, where it fights clangd
+vim.lsp.config("sourcekit", {
+  filetypes = { "swift" },
+})
+
 vim.lsp.config("ts_ls", {
   settings = {
     typescript = {
