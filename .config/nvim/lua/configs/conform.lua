@@ -1,5 +1,5 @@
--- Disable auto format on save by default
-vim.g.disable_autoformat = true
+-- Auto format on save is on by default (toggle with :FormatDisable / :FormatEnable)
+vim.g.disable_autoformat = false
 
 local options = {
   formatters_by_ft = {
