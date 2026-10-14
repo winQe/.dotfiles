@@ -3,7 +3,7 @@ return {
   {
     "<CR>",
     function()
-      return require("obsidian").util.smart_action()
+      return require("obsidian").actions.smart_action()
     end,
     expr = true,
     buffer = true,
@@ -24,7 +24,7 @@ return {
   {
     "<leader>oc",
     function()
-      return require("obsidian").util.toggle_checkbox()
+      return require("obsidian").actions.toggle_checkbox()
     end,
     desc = "Obsidian Toggle Checkbox"
   },
