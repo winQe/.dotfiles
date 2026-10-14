@@ -1,3 +1,42 @@
+-- nvim 0.12 always passes lists of nodes to query predicates/directives. nvim-treesitter's
+-- archived master branch still registers handlers with `all = false` and expects a single node.
+if vim.fn.has "nvim-0.12" == 1 then
+  local query = vim.treesitter.query
+  local function single_node(handler)
+    return function(match, ...)
+      local m = setmetatable({}, {
+        __index = function(_, k)
+          local v = match[k]
+          return type(v) == "table" and v[#v] or v
+        end,
+      })
+      return handler(m, ...)
+    end
+  end
+  for _, name in ipairs { "add_predicate", "add_directive" } do
+    local orig = query[name]
+    query[name] = function(n, handler, opts)
+      if type(opts) == "table" and opts.all == false then
+        handler = single_node(handler)
+      end
+      return orig(n, handler, opts)
+    end
+  end
+end
+
+-- nvim 0.12's inlay hint decoration provider calls nvim_buf_set_extmark with strict extmarks, so a
+-- stale hint whose column is past end-of-line throws "Invalid 'col': out of range". Clamp instead.
+if vim.fn.has "nvim-0.12" == 1 then
+  local inlay_ns = vim.api.nvim_create_namespace "nvim.lsp.inlayhint"
+  local set_extmark = vim.api.nvim_buf_set_extmark
+  vim.api.nvim_buf_set_extmark = function(buf, ns, line, col, opts)
+    if ns == inlay_ns and opts and opts.strict == nil then
+      opts.strict = false
+    end
+    return set_extmark(buf, ns, line, col, opts)
+  end
+end
+
 vim.g.base46_cache = vim.fn.stdpath "data" .. "/nvchad/base46/"
 vim.g.mapleader = " "
 vim.g.maplocalleader = ","
