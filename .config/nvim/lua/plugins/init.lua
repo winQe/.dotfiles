@@ -454,7 +454,7 @@ return {
   },
   {
     "NStefan002/speedtyper.nvim",
-    lazy = false,
+    cmd = { "Speedtyper", "SpeedtyperSettings" },
     branch = "v2",
   },
 
