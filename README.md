@@ -16,7 +16,7 @@ First, install [Homebrew](https://www.digitalocean.com/community/tutorials/how-t
 Use Homebrew to install the necessary packages:
 
 ```sh
-brew install zsh ripgrep fzf eza zoxide vivid nvim stow lazygit starship npm git-delta xclip xsel
+brew install zsh ripgrep fzf eza zoxide vivid nvim stow lazygit starship npm git-delta xclip xsel hub skillshare
 ```
 
 To avoid problem while running tmux + nvim inside docker container, use latest version of tmux
@@ -26,7 +26,8 @@ brew install tmux --HEAD
 ```
 If you're using any `Arch` based distro, you can use pacman directly
 ```sh
-sudo pacman -S zsh ripgrep fzf eza zoxide vivid nvim stow lazygit starship npm git-delta xclip xsel tmux
+sudo pacman -S zsh ripgrep fzf eza zoxide vivid nvim stow lazygit starship npm git-delta xclip xsel tmux hub
+curl -fsSL https://raw.githubusercontent.com/runkids/skillshare/main/install.sh | sh  # skillshare
 ```
 
 ### Install Rust and Cargo
@@ -70,6 +71,22 @@ To login
 atuin login
 ```
 
+
+## Skillshare
+[skillshare](https://github.com/runkids/skillshare) keeps AI agent skills in one place (`~/.config/skillshare/skills`, its own git repo, ignored here) and syncs them to Claude Code (`~/.claude/skills`) and the universal agents dir (`~/.agents/skills`).
+
+Config is stowed from `.config/skillshare/`, so after `stow .` just sync:
+```sh
+skillshare sync
+```
+Useful commands:
+```sh
+skillshare install <github-repo>   # add skills from GitHub
+skillshare list                    # list managed skills
+skillshare init --discover         # pick up newly installed AI CLIs
+skillshare ui                      # web dashboard
+```
+Don't import `~/.claude/skills/synced` — that folder holds the claude.ai-managed skills that Claude Code syncs itself.
 
 ## Oh My Zsh Plugins
 https://github.com/zsh-users/zsh-autosuggestions

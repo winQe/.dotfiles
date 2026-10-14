@@ -13,6 +13,7 @@ Personal dotfiles managed with GNU Stow. Symlinked from `~/.dotfiles` to `$HOME`
 - `.config/lazygit/` - Lazygit
 - `.config/mise/` - mise (runtime version manager)
 - `.config/worktrunk/` - Worktrunk (git worktree manager)
+- `.config/skillshare/` - skillshare (syncs AI agent skills to Claude Code etc.)
 - `.config/git/` - Git config
 - `.config/gh/` - GitHub CLI
 - `.config/fish/` - Fish shell (secondary)
