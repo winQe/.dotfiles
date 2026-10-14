@@ -1,7 +1,7 @@
 git:
-  paging:
-    colorArg: always
-    pager: delta --paging=never --line-numbers --hunk-header-decoration-style=omit --file-decoration-style=omit --syntax-theme="Catppuccin Mocha"
+  diffRenderers:
+    - colorArg: always
+      command: delta --paging=never --line-numbers --hunk-header-decoration-style=omit --file-decoration-style=omit --syntax-theme="Catppuccin Mocha"
 gui:
   theme:
     activeBorderColor:
@@ -23,9 +23,7 @@ gui:
       - '#cdd6f4'
     searchingActiveBorderColor:
       - '#f9e2af'
-
   authorColors:
     '*': '#b4befe'
-
 disableForcePushing: true
 promptToReturnFromSubprocess: false
