@@ -8,6 +8,7 @@ o.scrolloff = 5         -- minimum number of lines to keep above and below the c
 o.conceallevel = 1
 o.termguicolors = true
 o.swapfile = false
+o.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
 
 -- Custom highlight overrides
 vim.api.nvim_set_hl(0, "NoiceCmdlinePopupBorder", { fg = "#89dceb" })
