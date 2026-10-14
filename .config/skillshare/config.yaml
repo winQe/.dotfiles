@@ -1,0 +1,23 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/runkids/skillshare/main/schemas/config.schema.json
+
+sources:
+  skills: /Users/adin/.config/skillshare/skills
+  agents: /Users/adin/.config/skillshare/agents
+
+mode: merge
+
+targets:
+  claude:
+    skills:
+      path: /Users/adin/.claude/skills
+  universal:
+    skills:
+      path: /Users/adin/.agents/skills
+
+ignore:
+  - .DS_Store
+  - .git/
+  - __pycache__/
+
+audit:
+  block_threshold: CRITICAL
