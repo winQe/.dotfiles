@@ -11,30 +11,8 @@ font-size = 14
 # No tab bar, native title bar (wezterm: enable_tab_bar = false)
 macos-titlebar-style = native
 
-# Colors
-foreground = #e5e5e5
-background = #1a1a24
-cursor-color = #e5e5e5
-cursor-text = #000000
-selection-background = #5155e1
-selection-foreground = #000000
-
-palette = 0=#1a1a24
-palette = 1=#cd0000
-palette = 2=#f57900
-palette = 3=#ff00a8
-palette = 4=#5155e1
-palette = 5=#cd00cd
-palette = 6=#00cdcd
-palette = 7=#e5e5e5
-palette = 8=#4c4f69
-palette = 9=#d20f39
-palette = 10=#40a02b
-palette = 11=#df8e1d
-palette = 12=#1e66f5
-palette = 13=#f5c2e7
-palette = 14=#04a5e5
-palette = 15=#eff1f5
+# Colors (built-in theme, matches nvim/tmux)
+theme = Catppuccin Mocha
 
 # Left Option acts as Alt (wezterm default)
 macos-option-as-alt = left
