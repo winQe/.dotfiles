@@ -1,3 +1,8 @@
 .tmux/plugins/*
 .config/espanso/
 .config/skillshare/skills/
+
+# codex runtime state (auth, sessions, history) lives in ~/.codex -> here
+.codex/*
+!.codex/config.toml
+!.codex/AGENTS.md

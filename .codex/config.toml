@@ -1,0 +1,4 @@
+[tui]
+# Desktop notifications via Ghostty (OSC 9) when the terminal is unfocused
+notifications = true
+notification_method = "osc9"
