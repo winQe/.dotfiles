@@ -38,6 +38,9 @@ cd "$DOTFILES"
 stow --adopt .
 git restore . # --adopt pulls existing files into the repo; throw those changes away
 
+step "Runtimes (mise)"
+mise install
+
 step "tmux plugins (tpm)"
 [ -d "$HOME/.tmux/plugins/tpm" ] || git clone https://github.com/tmux-plugins/tpm "$HOME/.tmux/plugins/tpm"
 "$HOME/.tmux/plugins/tpm/bin/install_plugins" || true

@@ -32,8 +32,9 @@ brew "hub"
 brew "worktrunk"
 
 # Languages / build
-brew "node"
-brew "go"
+# Node, Python, Go and Bun versions come from mise (.config/mise/config.toml),
+# Rust from rustup, C/C++ from Xcode CLT
+brew "mise"
 brew "cmake"
 brew "gcc"
 

@@ -29,6 +29,7 @@ set -o vi
 bindkey jk vi-cmd-mode
 
 eval "$(zoxide init --cmd cd zsh)"
+eval "$(mise activate zsh)"
 
 function yy() {
 	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")"
@@ -86,3 +87,4 @@ bindkey '^X^E' edit-command-line
 export PATH="/opt/homebrew/opt/git/bin:$PATH"
 source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+

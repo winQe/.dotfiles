@@ -1,0 +1,10 @@
+# Global runtime defaults; projects override via .nvmrc, .node-version, .python-version, mise.toml etc.
+[tools]
+node = "lts"
+python = "3"
+go = "latest"
+bun = "latest"
+
+[settings]
+# read .nvmrc / .python-version / .go-version, not just mise.toml
+idiomatic_version_file_enable_tools = ["node", "python", "go", "bun"]
