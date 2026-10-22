@@ -10,6 +10,13 @@ o.termguicolors = true
 o.swapfile = false
 o.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
 
+-- Mason tools (prettierd, eslint_d, ...) are `#!/usr/bin/env node` scripts. Node comes from mise, whose
+-- `activate` hook only fires at an interactive prompt, so nvim started without one (tmux, GUI) has no node.
+local mise_shims = vim.fn.expand "~/.local/share/mise/shims"
+if vim.fn.isdirectory(mise_shims) == 1 and not vim.env.PATH:find(mise_shims, 1, true) then
+  vim.env.PATH = mise_shims .. ":" .. vim.env.PATH
+end
+
 -- Custom highlight overrides
 vim.api.nvim_set_hl(0, "NoiceCmdlinePopupBorder", { fg = "#89dceb" })
 vim.api.nvim_set_hl(0, "FlashLabel", { bg = "#eba0ac", fg = "#11111b" })
