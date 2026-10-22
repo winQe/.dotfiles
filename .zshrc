@@ -88,3 +88,7 @@ export PATH="/opt/homebrew/opt/git/bin:$PATH"
 source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
+# Compile + run a single C++ file: `run main.cpp [args...]`
+function run() {
+	g++ -std=c++23 -Wall -Wextra -g -fsanitize=address,undefined "$1" -o "${1%.*}" && "./${1%.*}" "${@:2}"
+}
