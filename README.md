@@ -2,75 +2,40 @@
 
 This repository contains my personal dotfiles and configuration files. This guide will help you set up your environment on a new PC.
 
-## Prerequisites
-
-### Install Homebrew (skip if using Arch)
-
-First, install [Homebrew](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-homebrew-on-linux), the macOS package manager
-```sh
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-```
-
-### Install Required Packages
-
-Use Homebrew to install the necessary packages:
+## Quick start
 
 ```sh
-brew install zsh ripgrep fzf eza zoxide vivid nvim stow lazygit starship npm git-delta xclip xsel hub skillshare
+git clone <this-repo> ~/.dotfiles
+~/.dotfiles/bootstrap.sh
 ```
 
-To avoid problem while running tmux + nvim inside docker container, use latest version of tmux
-```sh
-brew install tmux --HEAD
+`bootstrap.sh` is idempotent (re-run it any time) and does:
 
-```
-If you're using any `Arch` based distro, you can use pacman directly
-```sh
-sudo pacman -S zsh ripgrep fzf eza zoxide vivid nvim stow lazygit starship npm git-delta xclip xsel tmux hub
-curl -fsSL https://raw.githubusercontent.com/runkids/skillshare/main/install.sh | sh  # skillshare
-```
+1. Installs Homebrew if missing, then everything in [`Brewfile`](Brewfile) via `brew bundle`
+2. Oh My Zsh (zsh-autosuggestions / zsh-syntax-highlighting come from brew)
+3. Rust (rustup), Atuin, Claude Code (native installers)
+4. `stow --adopt .` + `git restore .` to symlink configs into `$HOME`
+5. tpm + tmux plugins
+6. `gh-dash` gh extension (needs `gh auth login` first)
+7. `skillshare sync`
 
-### Install Rust and Cargo
-```sh
-curl https://sh.rustup.rs -sSf | sh
-```
+Then finish by hand: `gh auth login`, `atuin login`, and `chsh -s "$(which zsh)"` if needed.
 
-### Install Oh My Zsh
+## Packages
 
-```sh
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-```
-
-## Setting up Dotfiles
-### Clone the Repository
-Clone this repository to your home directory:
-
-### Adopt Existing Configurations
-If you already have some configuration files in your home directory that you want to preserve, you can adopt them into your dotfiles repository:
+All Homebrew packages and casks live in the [`Brewfile`](Brewfile). When you install something new, add it there.
 
 ```sh
-cd ~/.dotfiles
-stow --adopt .
-git restore
+brew bundle check --verbose   # what's missing / outdated
+brew bundle                   # install / upgrade
+brew bundle cleanup           # list installed stuff not in the Brewfile (add --force to remove)
 ```
 
-## Tmux Plugins
-Clone and install tpm
-```sh
-git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
-```
-Press prefix + I (capital i, as in Install) to fetch the plugin.
+Linux (linuxbrew) works with the same Brewfile; casks are skipped and xclip/xsel are added.
 
-## Atuin
-``` sh
-curl --proto '=https' --tlsv1.2 -LsSf https://setup.atuin.sh | sh
-```
-To login
+## Stow
 
-``` sh
-atuin login
-```
-
+Files that shouldn't be symlinked into `$HOME` (README, Brewfile, bootstrap.sh...) are listed in `.stow-local-ignore`.
 
 ## Skillshare
 [skillshare](https://github.com/runkids/skillshare) keeps AI agent skills in one place (`~/.config/skillshare/skills`, its own git repo, ignored here) and syncs them to Claude Code (`~/.claude/skills`) and the universal agents dir (`~/.agents/skills`).
@@ -87,7 +52,3 @@ skillshare init --discover         # pick up newly installed AI CLIs
 skillshare ui                      # web dashboard
 ```
 Don't import `~/.claude/skills/synced` — that folder holds the claude.ai-managed skills that Claude Code syncs itself.
-
-## Oh My Zsh Plugins
-https://github.com/zsh-users/zsh-autosuggestions
-https://github.com/zsh-users/zsh-syntax-highlighting

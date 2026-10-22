@@ -4,6 +4,9 @@ Personal dotfiles managed with GNU Stow. Symlinked from `~/.dotfiles` to `$HOME`
 
 ## Structure
 
+- `Brewfile` - all Homebrew packages/casks (`brew bundle`); keep it updated when installing things
+- `bootstrap.sh` - idempotent new-machine setup (brew bundle, omz, stow, tpm, etc.)
+- `.stow-local-ignore` - repo files that must not be symlinked into `$HOME`
 - `.zshrc` - Zsh config (Oh My Zsh)
 - `.config/ghostty/config` - Ghostty terminal config (primary)
 - `.wezterm.lua` - WezTerm terminal config (previous)
@@ -12,18 +15,15 @@ Personal dotfiles managed with GNU Stow. Symlinked from `~/.dotfiles` to `$HOME`
 - `.config/starship.toml` - Starship prompt
 - `.config/atuin/` - Atuin shell history
 - `.config/lazygit/` - Lazygit
-- `.config/mise/` - mise (runtime version manager)
+- `.config/gh-dash/` - gh-dash (uses diffnav as diff pager)
 - `.config/worktrunk/` - Worktrunk (git worktree manager)
 - `.config/skillshare/` - skillshare (syncs AI agent skills to Claude Code etc.)
-- `.config/git/` - Git config
-- `.config/gh/` - GitHub CLI
-- `.config/fish/` - Fish shell (secondary)
 - `.claude/` - Claude Code settings
 - `.codex/` - Codex config (`~/.codex` symlinks here; runtime state is gitignored)
 
 ## Setup
 
-Uses `stow --adopt .` from `~/.dotfiles` to symlink everything into `$HOME`. See README.md for full setup instructions.
+Run `~/.dotfiles/bootstrap.sh`. It uses `stow --adopt .` to symlink everything into `$HOME`. See README.md.
 
 ## Key details
 
