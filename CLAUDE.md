@@ -30,6 +30,6 @@ Run `~/.dotfiles/bootstrap.sh`. It uses `stow --adopt .` to symlink everything i
 
 - macOS (Darwin), Homebrew for packages
 - tmux + Ghostty + Neovim is the primary workflow
-- Multiple git worktrees via Worktrunk for GoodNotes work
+- Multiple git worktrees via Worktrunk
 - Claude Code notification hook uses `terminal-notifier` (must be installed via brew)
 - `.claude/settings.json` contains secrets in `env` block -- do not commit without removing them first

@@ -1,15 +1,5 @@
 # Worktrunk User Configuration
 
-# GoodNotes-5 worktrees go to ~/gn-worktrees/<branch>
-[projects."github.com/GoodNotes/GoodNotes-5"]
-worktree-path = "~/gn-worktrees/{{ branch | replace('adin/', '') | sanitize }}"
-post-start.copy = "wt step copy-ignored"
-post-start.swiftwasm = 'if [ -d Crossplatform ]; then echo use_swiftwasm > Crossplatform/.envrc; direnv allow Crossplatform; direnv deny .envrc; sv=$(cat Crossplatform/.swift-version); mkdir -p Crossplatform/.sourcekit-lsp; printf "{\n  \"swiftPM\": {\n    \"swiftSDK\": \"%s-wasm32-unknown-wasip1-threads\"\n  }\n}\n" "$sv" > Crossplatform/.sourcekit-lsp/config.json; fi'
-post-start.submodules = "git submodule update --recursive --init --progress -f --depth 1"
-post-start.deps = "yarn && yarn workspaces foreach -Apt run postinstall"
-post-start.build = "yarn --cwd CrossplatformWeb build:swift:debug && yarn --cwd CrossplatformWeb build:debug"
-post-start.tmux = '[ -n "$TMUX" ] && tmux new-window -n {{ branch | replace("adin/", "") | sanitize }} -c {{ worktree_path }} nvim \; split-window -h -p 25 -c {{ worktree_path }} \; send-keys "claude" Enter \; split-window -v -p 50 -c {{ worktree_path }} codex \; select-pane -t 0'
-
 # Only commit staged files, don't auto-stage
 [commit]
 stage = "none"
@@ -22,8 +12,6 @@ template = """
 Write a commit message for the staged changes below.
 
 <format>
-You are a senior developer working in a company that maintains a digital note taking application.
-Your role is focused on building the web and android experiences.
 Analyze these git staged changes and write a single line conventional commit message following this developer's style:
 
 <type>: <description>
