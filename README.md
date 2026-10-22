@@ -15,9 +15,10 @@ git clone <this-repo> ~/.dotfiles
 2. Oh My Zsh (zsh-autosuggestions / zsh-syntax-highlighting come from brew)
 3. Rust (rustup), Atuin, Claude Code (native installers)
 4. `stow --adopt .` + `git restore .` to symlink configs into `$HOME`
-5. tpm + tmux plugins
-6. `gh-dash` gh extension (needs `gh auth login` first)
-7. `skillshare sync`
+5. `mise install` for Node / Python / Go / Bun (versions in `.config/mise/config.toml`)
+6. tpm + tmux plugins
+7. `gh-dash` gh extension (needs `gh auth login` first)
+8. `skillshare sync`
 
 Then finish by hand: `gh auth login`, `atuin login`, and `chsh -s "$(which zsh)"` if needed.
 
@@ -32,6 +33,16 @@ brew bundle cleanup           # list installed stuff not in the Brewfile (add --
 ```
 
 Linux (linuxbrew) works with the same Brewfile; casks are skipped and xclip/xsel are added.
+
+## Runtimes
+
+Language versions are managed by [mise](https://mise.jdx.dev), not brew. Node, Python, Go and Bun globals live in `.config/mise/config.toml`, and mise switches automatically per project from `.nvmrc`, `.node-version`, `.python-version` or `mise.toml`. Python packages and venvs use `uv`, Rust uses rustup, Swift uses swiftly.
+
+```sh
+mise use -g node@22      # change a global default
+mise use node@20         # pin for the current project (writes mise.toml)
+mise ls                  # what's active here
+```
 
 ## Stow
 

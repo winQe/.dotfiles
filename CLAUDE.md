@@ -16,6 +16,7 @@ Personal dotfiles managed with GNU Stow. Symlinked from `~/.dotfiles` to `$HOME`
 - `.config/atuin/` - Atuin shell history
 - `.config/lazygit/` - Lazygit
 - `.config/gh-dash/` - gh-dash (uses diffnav as diff pager)
+- `.config/mise/` - mise: global Node/Python/Go/Bun versions (not brew)
 - `.config/worktrunk/` - Worktrunk (git worktree manager)
 - `.config/skillshare/` - skillshare (syncs AI agent skills to Claude Code etc.)
 - `.claude/` - Claude Code settings
