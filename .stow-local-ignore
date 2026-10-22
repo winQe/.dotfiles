@@ -11,3 +11,4 @@
 ^/Brewfile
 ^/Brewfile\.lock\.json
 ^/bootstrap\.sh
+^/\.github
