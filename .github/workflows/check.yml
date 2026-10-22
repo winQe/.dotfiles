@@ -1,0 +1,47 @@
+name: check
+
+on:
+  push:
+  pull_request:
+  schedule:
+    - cron: "0 6 * * 1" # weekly, catches formulae renamed/removed upstream
+  workflow_dispatch:
+
+jobs:
+  shellcheck:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: shellcheck --severity=warning bootstrap.sh .tmux/*.sh
+
+  brewfile:
+    runs-on: macos-latest
+    env:
+      HOMEBREW_NO_AUTO_UPDATE: 1
+    steps:
+      - uses: actions/checkout@v4
+      - name: Every Brewfile entry still exists
+        run: |
+          brew update --quiet
+          fail=0
+          for f in $(brew bundle list --formula --file Brewfile); do
+            brew info --formula "$f" >/dev/null 2>&1 || { echo "::error::formula not found: $f"; fail=1; }
+          done
+          for c in $(brew bundle list --cask --file Brewfile); do
+            brew info --cask "$c" >/dev/null 2>&1 || { echo "::error::cask not found: $c"; fail=1; }
+          done
+          exit $fail
+
+  stow:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: sudo apt-get install -y stow
+      - name: Stow dry-run skips repo-only files
+        run: |
+          out=$(stow -n -v -t "$(mktemp -d)" . 2>&1)
+          echo "$out"
+          if echo "$out" | grep -iE 'LINK: (README|Brewfile|bootstrap\.sh|\.github)'; then
+            echo "::error::repo-only files would be linked into \$HOME; add them to .stow-local-ignore"
+            exit 1
+          fi
