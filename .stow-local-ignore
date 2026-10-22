@@ -1,0 +1,13 @@
+# Replaces stow's default ignore list, so the defaults are repeated here
+\.git
+\.gitignore
+\.gitmodules
+\.stow-local-ignore
+^/README.*
+^/LICENSE.*
+^/COPYING
+
+# Setup files, not configs
+^/Brewfile
+^/Brewfile\.lock\.json
+^/bootstrap\.sh
