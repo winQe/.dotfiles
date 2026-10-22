@@ -35,8 +35,20 @@ brew "worktrunk"
 # Node, Python, Go and Bun versions come from mise (.config/mise/config.toml),
 # Rust from rustup, C/C++ from Xcode CLT
 brew "mise"
+brew "uv" # Python packages and venvs, on top of mise's Python
+brew "typescript"
+brew "lua"
+brew "luarocks"
+brew "bash" # macOS ships bash 3.2
+brew "swiftly" # Swift toolchains, run `swiftly init` once
+brew "solidity"
 brew "cmake"
 brew "gcc"
+brew "bazelisk"
+
+# Infra / data
+brew "awscli"
+brew "libpq", link: true # psql client; run databases in containers
 
 # AI tooling
 brew "skillshare"
@@ -59,4 +71,5 @@ if OS.mac?
   cask "font-jetbrains-mono-nerd-font"
   cask "codex"
   cask "espanso"
+  cask "orbstack" # docker
 end
