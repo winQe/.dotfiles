@@ -19,7 +19,7 @@ Personal dotfiles managed with GNU Stow. Symlinked from `~/.dotfiles` to `$HOME`
 - `.config/mise/` - mise: global Node/Python/Go/Bun versions (not brew)
 - `.config/worktrunk/` - Worktrunk (git worktree manager)
 - `.config/skillshare/` - skillshare (syncs AI agent skills to Claude Code etc.)
-- `.claude/` - Claude Code settings
+- `.claude/CLAUDE.md` - global Claude Code instructions (`~/.codex/AGENTS.md` links here too)
 - `.codex/` - Codex config (`~/.codex` symlinks here; runtime state is gitignored)
 
 ## Setup

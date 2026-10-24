@@ -12,3 +12,6 @@
 ^/Brewfile\.lock\.json
 ^/bootstrap\.sh
 ^/\.github
+
+# Repo docs for working on the dotfiles, not global instructions
+^/CLAUDE\.md
