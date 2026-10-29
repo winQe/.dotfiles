@@ -12,7 +12,7 @@ vim.lsp.config("*", {
 })
 
 -- Simple servers with default config
-local servers = { "html", "cssls", "eslint", "pyright", "terraformls", "sourcekit" }
+local servers = { "html", "cssls", "eslint", "pyright", "ruff", "terraformls", "sourcekit" }
 
 for _, server in ipairs(servers) do
   vim.lsp.config(server, {})

@@ -5,6 +5,7 @@ local options = {
   formatters_by_ft = {
     lua = { "luaformatter" },
     cpp = { "clang-format" },
+    python = { "ruff_organize_imports", "ruff_format" },
     typescript = { "prettierd", "prettier" },
     typescriptreact = { "prettierd", "prettier" },
     javascript = { "prettierd", "prettier" },

@@ -68,6 +68,7 @@ return {
         "tailwindcss-language-server",
         "eslint-lsp",
         "pyright",
+        "ruff",
         "rust-analyzer",
         "gopls",
         "terraform-ls",
