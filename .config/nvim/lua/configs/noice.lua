@@ -1,6 +1,7 @@
 require("noice").setup {
   messages = { enabled = false },
   lsp = {
+    progress = { enabled = false },
     signature = { enabled = false },
     override = {
       ["vim.lsp.util.convert_input_to_markdown_lines"] = true,
