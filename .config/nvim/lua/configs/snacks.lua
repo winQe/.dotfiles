@@ -1,5 +1,6 @@
 local server = vim.v.servername or ""
-local handoff = vim.fn.stdpath("cache") .. "/lazygit-handoff-" .. vim.fn.sha256(server):sub(1, 8)
+local server_id = vim.fn.sha256(server):sub(1, 8)
+local handoff = vim.fn.stdpath("cache") .. "/lazygit-handoff-" .. server_id
 _G.LazygitHandoffPath = handoff
 local handoff_quoted = vim.fn.shellescape(handoff)
 local notify = 'nvim --server "$NVIM" --remote-expr \'v:lua.LazygitEditFromHandoff()\''
@@ -13,6 +14,8 @@ return {
   input = { enabled = true },
   gh = {},
   lazygit = {
+    -- per-instance file: a shared one gets overwritten by other nvims with their handoff path
+    theme_path = vim.fn.stdpath("cache") .. "/lazygit-theme-" .. server_id .. ".yml",
     config = {
       os = {
         edit = "printf '%s' {{filename}} > " .. handoff_quoted .. " && " .. notify,
